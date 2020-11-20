@@ -24,8 +24,8 @@ public class Team{
 
 	private ArrayList<Lineup> lineups;
 
-	public Team(){
-		name='';
+	public Team(char name){
+		this.name=name;
 		players=new Player[MAX_PLAYERS];
 		changingRoom1=new Player[MAX_CR1_ROWS][MAX_CR1_COLS];
 		changingRoom2=new Player[MAX_CR2_ROWS][MAX_CR2_COLS];

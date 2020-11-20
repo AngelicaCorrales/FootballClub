@@ -28,6 +28,7 @@ public class Main{
 				"(4) Agregar entrenador a equipo \n"+
 				"(5) Mostrar informacion de empleados  \n"+
 				"(6) Mostrar informacion de equipos \n"+
+				"(6) Agregar alineacion a equipo \n"+
 				"(7) Ubicar entrenadores en oficinas \n"+
 				"(7) Ubicar jugadores en camerinos \n"+
 				"(7) Mostrar informacion de todo el club\n"+
@@ -40,25 +41,25 @@ public class Main{
 		
 		switch(op) {
 		case 1:
-			addSet();
+			
 			break;
 		case 2:
-			removeSet();
+			
 			break;
 		case 3:
-			addElementToSet();
+			
 			break;
 		case 4:
-			 removeElementFromSet();
+			 
 			break;
 		case 5:
-			setOperations();
+			
 			break;
 		case 6:
-			 showInfoSet();
+			
 			break;
 		case 7:
-			showInfoSets();
+			
 			break;
 				
 		case 8:
