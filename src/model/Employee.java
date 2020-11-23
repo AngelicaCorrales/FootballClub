@@ -16,4 +16,8 @@ public abstract class Employee{
 
 	}
 
+	public String getId(){
+		return id;
+	}
+
 }

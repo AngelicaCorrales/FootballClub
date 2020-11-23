@@ -36,4 +36,40 @@ public class Team{
 
 	}
 
+	public boolean canHirePlayer(){
+		boolean hire=false;
+		for(int i=0; i<players.length && !hire;i++){
+			if(players[i]==null){
+				hire=true;
+			}
+		}
+		return hire;
+	}
+
+	public boolean numberPlayerAvailable(int number){
+		boolean available=true;
+
+		for(int i=0;i<players.length && available;i++){
+			if(players[i]!= null && players[i].getNumber()==number){
+				available=false;
+			}
+		}
+		return available;
+	}
+
+	public Player hirePlayer(name, id, salary, number, position){
+		boolean exit=false;
+
+		for(int i=0; i<players.length && !exit;i++){
+			if(players[i]==null){
+				players[i]=new Player(name, id, salary, number, position);
+				exit=true;
+				Player objPlayer=players[i];
+			}
+		}
+		return objPlayer;
+
+
+	}
+
 }

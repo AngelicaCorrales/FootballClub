@@ -24,8 +24,6 @@ public class Main{
 		System.out.println("Seleccione una opcion:\n"+
 				"(1) Contratar empleado\n"+
 				"(2) Despedir empleado \n"+
-				"(3) Agregar jugador a equipo\n"+
-				"(4) Agregar entrenador a equipo \n"+
 				"(5) Mostrar informacion de empleados  \n"+
 				"(6) Mostrar informacion de equipos \n"+
 				"(6) Agregar alineacion a equipo \n"+
