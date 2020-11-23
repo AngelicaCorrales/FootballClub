@@ -8,11 +8,11 @@ public abstract class Employee{
 	private double salary;
 	private boolean activeStatus;
 
-	public Employee(String name, String id, double salary, boolean activeStatus){
+	public Employee(String name, String id, double salary){
 		this.name=name;
 		this id=id;
 		this.salary=salary;
-		this.activeStatus=activeStatus;
+		this.activeStatus=true;
 
 	}
 

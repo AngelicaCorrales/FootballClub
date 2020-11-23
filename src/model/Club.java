@@ -30,4 +30,16 @@ public class Club{
 
 	}
 
+	public String hireEmployee(char teamName, String name, String id, double salary, int number, String position){
+		//player
+	}
+
+	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships){
+		//headCoach
+	}
+
+	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill){
+		//assistantCoach
+	}
+
 }

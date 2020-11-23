@@ -4,8 +4,8 @@ public class AssistantCoach extends Coach implements Price, Level{
 	private boolean wasPlayer;
 	private Skill skill;
 
-	public AssistantCoach(String name, String id, double salary, boolean activeStatus, int yearsExperience, boolean wasPlayer, String skill){
-		super(name,  id,  salary,  activeStatus, yearsExperience);
+	public AssistantCoach(String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill){
+		super(name,  id,  salary,  yearsExperience);
 		this.wasPlayer=wasPlayer;
 		this.skill=Skill.valueOf(skill);
 	}

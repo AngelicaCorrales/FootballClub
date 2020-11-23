@@ -5,8 +5,8 @@ public class HeadCoach extends Coach implements Price, Level{
 	private int numberTeams;
 	private int numberChampionships;
 
-	public HeadCoach(String name, String id, double salary, boolean activeStatus, int yearsExperience, int numberTeams, int numberChampionships){
-		super(name,  id,  salary,  activeStatus, yearsExperience);
+	public HeadCoach(String name, String id, double salary int yearsExperience, int numberTeams, int numberChampionships){
+		super(name,  id,  salary, yearsExperience);
 		this.numberTeams=numberTeams;
 		this.numberChampionships=numberChampionships;
 	}
