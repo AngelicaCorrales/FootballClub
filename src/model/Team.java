@@ -57,14 +57,14 @@ public class Team{
 		return available;
 	}
 
-	public Player hirePlayer(name, id, salary, number, position){
+	public Player hirePlayer(String name, String id, double salary, int number, String position){
 		boolean exit=false;
-
+		Player objPlayer=null;
 		for(int i=0; i<players.length && !exit;i++){
 			if(players[i]==null){
 				players[i]=new Player(name, id, salary, number, position);
 				exit=true;
-				Player objPlayer=players[i];
+				objPlayer=players[i];
 			}
 		}
 		return objPlayer;

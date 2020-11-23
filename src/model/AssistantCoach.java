@@ -1,5 +1,5 @@
 package model;
-public class AssistantCoach extends Coach implements Price, Level{
+public class AssistantCoach extends Coach{
 	//attributes
 	private boolean wasPlayer;
 	private Skill skill;

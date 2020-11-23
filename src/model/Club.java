@@ -15,7 +15,7 @@ public class Club{
 	//relationships
 	private Team teamA;
 	private Team teamB;
-	private Arraylist<Employee> employees;
+	private ArrayList<Employee> employees;
 	private Coach[][] office;
 
 	public Club(String name, String nit, String foundationDate){
@@ -25,7 +25,7 @@ public class Club{
 
 		teamA=new Team('A');
 		teamB=new Team('B');
-		employees=new Arraylist<Employee>();
+		employees=new ArrayList<Employee>();
 		office= new Coach[MAX_OFFICE_ROWS][MAX_OFFICE_COLS];
 
 	}
@@ -44,7 +44,21 @@ public class Club{
 	}
 
 	public String hireTeamPlayer(Team team, String name, String id, double salary, int number, String position ){
-		
+		String message="";
+		if(team.canHirePlayer()){
+			if(team.numberPlayerAvailable(number)){
+				employees.add(team.hirePlayer(name, id, salary, number, position));
+				message="Nuevo jugador contratado exitosamente.";
+			}
+			else{
+				message="No se pudo agregar el nuevo jugador. El numero de camisa ya esta en uso";
+			}
+
+		}
+		else{
+			message="No se pudo agregar el nuevo jugador. Equipo lleno.";
+		}
+		return message;
 	}
 
 	public String hireEmployee(char teamName, String name, String id, double salary, int number, String position){
@@ -54,37 +68,27 @@ public class Club{
 		boolean hire;
 		if(objEmployee==null){
 			if(teamName=='A'){
-				if(teamA.canHirePlayer()){
-					if(teamA.numberPlayerAvailable(number)){
-						objEmployee=teamA.hirePlayer(name, id, salary, number, position);
-						message="Nuevo jugador contratado exitosamente.";
-						employees.add(objEmployee);
-					}
-					else{
-						message="No se pudo agregar el nuevo jugador. El numero de camisa ya esta en uso";
-					}
-
-				}
-				else{
-					message="No se pudo agregar el nuevo jugador. Equipo lleno.";
-				}
+				message=hireTeamPlayer( teamA,  name,  id,  salary,  number,  position);
 			}
 			else{
-				message=teamB.hireEmployee(name, id, salary, number, position);
+				message=hireTeamPlayer( teamB,  name,  id,  salary,  number,  position);
 			}
 
 		}
 		else{
 			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
 		}
+		return message;
 	}
 
 	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships){
 		//headCoach
+		return "";
 	}
 
 	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill){
-		//assistantCoach
+		//assistantCoach}
+		return "";
 	}
 
 }

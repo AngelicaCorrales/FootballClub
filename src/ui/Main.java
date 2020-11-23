@@ -119,7 +119,7 @@ public class Main{
 		System.out.println("CONTRATAR EMPLEADO \n");
 		boolean error;
 		int option;
-		String message;
+		String message="";
 		do{
 			error=false;
 			System.out.println("Seleccione el tipo de empleado:\n"+
@@ -168,7 +168,7 @@ public class Main{
 					position=sc.nextLine().toUpperCase();
 					if(position.equals("PORTERO") || position.equals("DEFENSOR") || position.equals("VOLANTE") || position.equals("DELANTERO")){
 						
-						if(position.equals("PORTERO"){
+						if(position.equals("PORTERO")){
 							position= "GOALKEEPER";
 						}
 

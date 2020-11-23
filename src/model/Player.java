@@ -18,4 +18,12 @@ public class Player extends Employee implements Price, Level{
 		return number;
 	}
 
+	public double calculatePrice(){
+		return 1;
+	}
+
+	public double calculateLevel(){
+		return 1;
+	}
+
 }

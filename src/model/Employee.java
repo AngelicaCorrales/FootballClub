@@ -10,7 +10,7 @@ public abstract class Employee{
 
 	public Employee(String name, String id, double salary){
 		this.name=name;
-		this id=id;
+		this.id=id;
 		this.salary=salary;
 		this.activeStatus=true;
 
