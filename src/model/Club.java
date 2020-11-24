@@ -30,6 +30,10 @@ public class Club{
 
 	}
 
+	public int getMAX_SKILLS(){
+		return AssistantCoach.MAX_SKILLS;
+	}
+
 	public Employee findEmployee(String id){
 		boolean exist=false;
 		Employee objEmployee=null;
@@ -116,11 +120,11 @@ public class Club{
 		return message;
 	}
 
-	public String hireTeamEmployee(Team team, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill ){
+	public String hireTeamEmployee(Team team, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String[] skills ){
 		//assistant
 		String message="";
 		if(team.canHireAssistantCoach()){
-				employees.add(team.hireAssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skill));
+				employees.add(team.hireAssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skills));
 				message="Nuevo entrenador principal contratado exitosamente.";
 
 		}
@@ -130,17 +134,17 @@ public class Club{
 		return message;
 	}
 
-	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill){
+	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String[] skills){
 		//assistantCoach
 		String message="";
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
 			if(teamName=='A'){
-				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  wasPlayer,  skill);
+				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
 			}
 			else{
-				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  wasPlayer,  skill);
+				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
 			}
 
 		}

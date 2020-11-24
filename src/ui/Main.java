@@ -219,39 +219,73 @@ public class Main{
 						wasPlayer=true;
 					}
 					sc.nextLine();
-					String skill;
-					do{
-						System.out.println("\nIngrese la experticia del nuevo empleado (ofensivo, defensivo, posesion, jugadas de laboratorio)");
-						skill=sc.nextLine().toUpperCase();
+					String[] skills= new String[club.getMAX_SKILLS()];
+					boolean exit=false;
+					int counter=0;
+					for(int i=0; i<skills.length && !exit;i++){
 
-						if(skill.equals("OFENSIVO") || skill.equals("DEFENSIVO") || skill.equals("POSESION")|| skill.equals("JUGADAS DE LABORATORIO")){
-							if(skill.equals("OFENSIVO")){
-								skill="OFFENSIVE";
+						do{
+							System.out.println("\nIngrese la experticia del nuevo empleado (ofensivo, defensivo, posesion, jugadas de laboratorio, otra1, otra2)");
+							skills[i]=sc.nextLine().toUpperCase();
+
+							if(skills[i].equals("OFENSIVO") || skills[i].equals("DEFENSIVO") || skills[i].equals("POSESION")|| skills[i].equals("JUGADAS DE LABORATORIO") || skills[i].equals("OTRA1") || skills[i].equals("OTRA2")){
+								if(skills[i].equals("OFENSIVO")){
+									skills[i]="OFFENSIVE";
+								}
+
+								if(skills[i].equals("DEFENSIVO")){
+									skills[i]="DEFENSIVE";
+								}
+
+								if(skills[i].equals("POSESION")){
+									skills[i]="POSSESSION";
+								}
+
+								if(skills[i].equals("JUGADAS DE LABORATORIO")){
+									skills[i]="LABORATORY_PLAYS";
+								}
+
+								if(skills[i].equals("OTRA1")){
+									skills[i]="OTRA1";
+								}
+
+								if(skills[i].equals("OTRA2")){
+									skills[i]="OTRA2";
+								}
+								control=false;
+								counter++;
+
+								for(int j=0; j<skills.length; j++){
+									if(j!=i && skills[i]==skills[j]){
+										skills[i]=null;
+										i--;
+										counter--;
+									}
+								}
 							}
 
-							if(skill.equals("DEFENSIVO")){
-								skill="DEFENSIVE";
-							}
+							else{
+								control=true;
+								System.out.println("Experticia no valida. Ingrese nuevamente");
 
-							if(skill.equals("POSESION")){
-								skill="POSSESSION";
 							}
+							
 
-							if(skill.equals("JUGADAS DE LABORATORIO")){
-								skill="LABORATORY_PLAYS";
+
+						}while(control);
+						if(counter!=club.getMAX_SKILLS()){
+							System.out.println("Agregar otra experticia? (1) Si, cualquier numero si no");
+							int other=sc.nextInt();
+							if(other!=1){
+								exit=true;
 							}
-							control=false;
+							sc.nextLine();
 						}
 
-						else{
-							control=true;
-							System.out.println("Experticia no valida. Ingrese nuevamente");
+					}
 
-						}
 
-					}while(control);
-
-					message=club.hireEmployee(teamName, name, id, salary, yearsExperience, wasPlayer, skill);
+					message=club.hireEmployee(teamName, name, id, salary, yearsExperience, wasPlayer, skills);
 				}
 
 				break;
@@ -260,6 +294,6 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 		System.out.println(message);
 		System.out.println("-----------------------------------------------------------");
-	}
+	}// end hire employee
 
 }

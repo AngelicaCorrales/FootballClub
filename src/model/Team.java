@@ -22,7 +22,7 @@ public class Team{
 	private AssistantCoach[] assistantCoaches;
 	private HeadCoach headCoach;
 
-	private ArrayList<Lineup> lineups;
+	private Lineup lineup;
 
 	public Team(char name){
 		this.name=name;
@@ -30,7 +30,7 @@ public class Team{
 		changingRoom1=new Player[MAX_CR1_ROWS][MAX_CR1_COLS];
 		changingRoom2=new Player[MAX_CR2_ROWS][MAX_CR2_COLS];
 		assistantCoaches=new AssistantCoach[MAX_AS_COACHES];
-		lineups=new ArrayList<Lineup>();
+		lineup=null;
 		headCoach=null;
 
 
@@ -96,12 +96,12 @@ public class Team{
 		return hire;
 	}
 
-	public AssistantCoach hireAssistantCoach(String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill ){
+	public AssistantCoach hireAssistantCoach(String name, String id, double salary, int yearsExperience, boolean wasPlayer, String[] skills ){
 		boolean exit=false;
 		AssistantCoach objAsCoach=null;
 		for(int i=0; i<assistantCoaches.length && !exit;i++){
 			if(assistantCoaches[i]==null){
-				assistantCoaches[i]=new AssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skill);
+				assistantCoaches[i]=new AssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
 				exit=true;
 				objAsCoach=assistantCoaches[i];
 			}
