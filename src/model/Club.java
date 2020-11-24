@@ -81,13 +81,41 @@ public class Club{
 		return message;
 	}
 
+	public String hireTeamHeadCoach(Team team, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships ){
+		String message="";
+		if(team.canHireHeadCoach()){
+				employees.add(team.hireHeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships));
+				message="Nuevo entrenador principal contratado exitosamente.";
+
+		}
+		else{
+			message="No se pudo agregar el nuevo entrenador. Ya existe uno en el equipo.";
+		}
+		return message;
+	}
+
 	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships){
 		//headCoach
-		return "";
+		String message="";
+		Employee objEmployee=findEmployee(id);
+		boolean hire;
+		if(objEmployee==null){
+			if(teamName=='A'){
+				message=hireTeamHeadCoach( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+			}
+			else{
+				message=hireTeamHeadCoach( teamB,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+			}
+
+		}
+		else{
+			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
+		}
+		return message;
 	}
 
 	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill){
-		//assistantCoach}
+		//assistantCoach
 		return "";
 	}
 

@@ -69,6 +69,19 @@ public class Team{
 		}
 		return objPlayer;
 
+	}
+
+	public boolean canHireHeadCoach(){
+		boolean hire=false;
+		if(headCoach==null){
+			hire=true;
+		}
+		return hire;
+	}
+
+	public HeadCoach hireHeadCoach(String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships){
+		headCoach= new HeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+		return headCoach;
 
 	}
 
