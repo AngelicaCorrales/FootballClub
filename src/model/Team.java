@@ -22,7 +22,7 @@ public class Team{
 	private AssistantCoach[] assistantCoaches;
 	private HeadCoach headCoach;
 
-	private Lineup lineup;
+	private ArrayList<Lineup> lineups;
 
 	public Team(char name){
 		this.name=name;
@@ -30,7 +30,7 @@ public class Team{
 		changingRoom1=new Player[MAX_CR1_ROWS][MAX_CR1_COLS];
 		changingRoom2=new Player[MAX_CR2_ROWS][MAX_CR2_COLS];
 		assistantCoaches=new AssistantCoach[MAX_AS_COACHES];
-		lineup=null;
+		lineups= new ArrayList<Lineup>();
 		headCoach=null;
 
 
