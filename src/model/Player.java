@@ -14,6 +14,9 @@ public class Player extends Employee implements Price, Level{
 		this.position=Position.valueOf(position);
 	}
 
+	public void setNumber(int number){
+		this.number=number;
+	}
 	public int getNumber(){
 		return number;
 	}

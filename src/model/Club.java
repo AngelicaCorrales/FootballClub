@@ -154,4 +154,32 @@ public class Club{
 		return message;
 	}
 
+
+
+
+
+
+	
+
+	public String fireEmployee(String id){
+		String message="";
+		Employee objEmployee=findEmployee(id);
+		if(objEmployee==null){
+			message="Error. El empleado no existe";
+		}
+		else{
+			if(objEmployee.getActiveStatus()==true){
+				objEmployee.setActiveStatus(false);
+				teamA.fireEmployee(objEmployee);
+				teamB.fireEmployee(objEmployee);
+				
+				message="El empleado ha sido despedido exitosamente";
+			}
+			else{
+				message="El empleado ya estaba despedido";
+			}
+		}
+		return message;
+	}
+
 }

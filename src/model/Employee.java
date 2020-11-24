@@ -15,9 +15,20 @@ public abstract class Employee{
 		this.activeStatus=true;
 
 	}
+	public boolean getActiveStatus(){
+		return activeStatus;
+	}
+
+	public void setActiveStatus(boolean activeStatus){
+		this.activeStatus=activeStatus;
+	}
 
 	public String getId(){
 		return id;
+	}
+
+	public void setSalary(double salary){
+		this.salary=salary;
 	}
 
 }

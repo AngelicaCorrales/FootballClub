@@ -110,4 +110,36 @@ public class Team{
 
 	}
 
+	public void fireEmployee(Employee objEmployee){
+		boolean exit=false;
+		objEmployee.setSalary(0);
+
+		if(objEmployee instanceof Player){
+			((Player)objEmployee).setNumber(0);
+			for(int i=0; i<players.length && !exit;i++){
+				if(players[i]==objEmployee){
+					players[i]=null;
+					exit=true;
+				}
+			}
+		}
+
+
+		if(objEmployee instanceof HeadCoach){
+			headCoach=null;
+		}
+
+
+		if(objEmployee instanceof AssistantCoach){
+			for(int i=0; i<assistantCoaches.length && !exit;i++){
+				if(assistantCoaches[i]==objEmployee){
+					assistantCoaches[i]=null;
+					exit=true;
+				}
+			}
+		}
+
+
+	}
+
 }

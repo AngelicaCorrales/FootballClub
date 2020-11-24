@@ -212,34 +212,44 @@ public class Main{
 					ArrayList<String> championships= new ArrayList<String>();
 					String championshipName, championshipYear, championship;
 					do{
-						System.out.println("\nIngrese el nombre de un campeonato conseguido del nuevo empleado");
-						championshipName=sc.nextLine();
+						System.out.println("\nHa conseguido algun campeonato? (1) Si,(Cualquier numero) No");
+						int optionch=sc.nextInt();
 
-						System.out.println("\nIngrese el anio del campeonato anterior");
-						championshipYear=sc.nextLine();
+						if(optionch==1){
+							sc.nextLine();
+							System.out.println("\nIngrese el nombre de un campeonato conseguido del nuevo empleado");
+							championshipName=sc.nextLine();
 
-						championship= championshipName+" - "+championshipYear;
-						championships.add(championship);
+							System.out.println("\nIngrese el anio del campeonato anterior");
+							championshipYear=sc.nextLine();
+
+							championship= championshipName+" - "+championshipYear;
+							championships.add(championship);
 
 
-						int same=0;
-						for(int i=0; i<championships.size();i++){
-							if(championship.equals(championships.get(i))){
-								same++;
+							int same=0;
+							for(int i=0; i<championships.size();i++){
+								if(championship.equals(championships.get(i))){
+									same++;
+								}
 							}
-						}
 
-						if(same==2){
-							championships.remove(championships.indexOf(championship));
-							System.out.println("\nYa se habia ingresado ese campeonato");
-						}
+							if(same==2){
+								championships.remove(championships.indexOf(championship));
+								System.out.println("\nYa se habia ingresado ese campeonato");
+							}
 
-						System.out.println("Agregar otro campeonato? (1) Si, (Cualquier numero) No");
-						int other=sc.nextInt();
-						if(other!=1){
+							System.out.println("Agregar otro campeonato? (1) Si, (Cualquier numero) No");
+							int other=sc.nextInt();
+							if(other!=1){
+								exit=true;
+							}
+							sc.nextLine();
+
+						}
+						else{
 							exit=true;
 						}
-						sc.nextLine();
 					}while(!exit);
 
 
@@ -337,7 +347,18 @@ public class Main{
 
 
 	public void fireEmployee(){
+		String message="";
+		sc.nextLine();
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("DESPEDIR EMPLEADO \n");
 
+		System.out.println("Ingrese el identificador del empleado a despedir");
+		String id=sc.nextLine();
+		message=club.fireEmployee(id);
+
+		System.out.println("-----------------------------------------------------------");
+		System.out.println(message);
+		System.out.println("-----------------------------------------------------------");
 	}
 
 }
