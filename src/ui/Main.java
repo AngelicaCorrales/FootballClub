@@ -221,10 +221,17 @@ public class Main{
 						championship= championshipName+" - "+championshipYear;
 						championships.add(championship);
 
+
+						int same=0;
 						for(int i=0; i<championships.size();i++){
-							if(championship==championships.get(i)){
-								championships.remove(championships.indexOf(championship));
+							if(championship.equals(championships.get(i))){
+								same++;
 							}
+						}
+
+						if(same==2){
+							championships.remove(championships.indexOf(championship));
+							System.out.println("\nYa se habia ingresado ese campeonato");
 						}
 
 						System.out.println("Agregar otro campeonato? (1) Si, (Cualquier numero) No");
