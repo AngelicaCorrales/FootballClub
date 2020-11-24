@@ -42,7 +42,7 @@ public class Main{
 			hireEmployee();
 			break;
 		case 2:
-			
+			fireEmployee();
 			break;
 		case 3:
 			
@@ -199,17 +199,44 @@ public class Main{
 
 			case 2:
 			case 3:
+				boolean exit=false;
 				System.out.println("\nIngrese los anios de experiencia del nuevo empleado");
 				int yearsExperience=sc.nextInt();
-
+				sc.nextLine();
 				if(option==2){
 					System.out.println("\nIngrese el numero de equipos a cargo en la carrera como manager del nuevo empleado");
 					int numberTeams=sc.nextInt();
+					sc.nextLine();
 
-					System.out.println("\nIngrese los campeonatos conseguidos del nuevo empleado");
-					int numberChampionships=sc.nextInt();
 
-					message=club.hireEmployee(teamName, name, id, salary, yearsExperience, numberTeams, numberChampionships);
+					ArrayList<String> championships= new ArrayList<String>();
+					String championshipName, championshipYear, championship;
+					do{
+						System.out.println("\nIngrese el nombre de un campeonato conseguido del nuevo empleado");
+						championshipName=sc.nextLine();
+
+						System.out.println("\nIngrese el anio del campeonato anterior");
+						championshipYear=sc.nextLine();
+
+						championship= championshipName+" - "+championshipYear;
+						championships.add(championship);
+
+						for(int i=0; i<championships.size();i++){
+							if(championship==championships.get(i)){
+								championships.remove(championships.indexOf(championship));
+							}
+						}
+
+						System.out.println("Agregar otro campeonato? (1) Si, (Cualquier numero) No");
+						int other=sc.nextInt();
+						if(other!=1){
+							exit=true;
+						}
+						sc.nextLine();
+					}while(!exit);
+
+
+					message=club.hireEmployee(teamName, name, id, salary, yearsExperience, numberTeams, championships);
 				}
 				else{
 					System.out.println("\nIngrese (1) si ha sido jugador profesional en algun momento de su vida, cualquier otro numero si no");
@@ -220,8 +247,9 @@ public class Main{
 					}
 					sc.nextLine();
 					String[] skills= new String[club.getMAX_SKILLS()];
-					boolean exit=false;
+					
 					int counter=0;
+					exit=false;
 					for(int i=0; i<skills.length && !exit;i++){
 
 						do{
@@ -257,6 +285,7 @@ public class Main{
 
 								for(int j=0; j<skills.length; j++){
 									if(j!=i && skills[i]==skills[j]){
+										System.out.println("\nYa se habia ingresado esa experticia");
 										skills[i]=null;
 										i--;
 										counter--;
@@ -274,7 +303,7 @@ public class Main{
 
 						}while(control);
 						if(counter!=club.getMAX_SKILLS()){
-							System.out.println("Agregar otra experticia? (1) Si, cualquier numero si no");
+							System.out.println("Agregar otra experticia? (1) Si, (Cualquier numero) No");
 							int other=sc.nextInt();
 							if(other!=1){
 								exit=true;
@@ -295,5 +324,13 @@ public class Main{
 		System.out.println(message);
 		System.out.println("-----------------------------------------------------------");
 	}// end hire employee
+
+
+
+
+
+	public void fireEmployee(){
+
+	}
 
 }

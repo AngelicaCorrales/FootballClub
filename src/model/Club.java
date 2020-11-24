@@ -86,11 +86,11 @@ public class Club{
 		return message;
 	}
 
-	public String hireTeamEmployee(Team team, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships ){
+	public String hireTeamEmployee(Team team, String name, String id, double salary, int yearsExperience, int numberTeams, ArrayList<String> championships ){
 		//head coach
 		String message="";
 		if(team.canHireHeadCoach()){
-				employees.add(team.hireHeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships));
+				employees.add(team.hireHeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  championships));
 				message="Nuevo entrenador principal contratado exitosamente.";
 
 		}
@@ -100,17 +100,17 @@ public class Club{
 		return message;
 	}
 
-	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships){
+	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, int numberTeams, ArrayList<String> championships){
 		//headCoach
 		String message="";
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
 			if(teamName=='A'){
-				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  championships);
 			}
 			else{
-				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  numberTeams,  championships);
 			}
 
 		}

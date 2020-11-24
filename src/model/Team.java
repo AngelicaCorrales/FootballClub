@@ -79,8 +79,8 @@ public class Team{
 		return hire;
 	}
 
-	public HeadCoach hireHeadCoach(String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships){
-		headCoach= new HeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+	public HeadCoach hireHeadCoach(String name, String id, double salary, int yearsExperience, int numberTeams, ArrayList<String> championships){
+		headCoach= new HeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  championships);
 		return headCoach;
 
 	}
