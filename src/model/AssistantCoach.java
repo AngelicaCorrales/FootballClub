@@ -18,4 +18,9 @@ public class AssistantCoach extends Coach{
 		
 	}
 
+	public String toString(){
+		return super.toString()+ "*Fue jugador: "+wasPlayerToString()+"\n"+
+								"*Experticia(s): "skillsToString()+"\n";
+	}
+
 }

@@ -24,6 +24,7 @@ public class Main{
 		System.out.println("Seleccione una opcion:\n"+
 				"(1) Contratar empleado\n"+
 				"(2) Despedir empleado \n"+
+				"(3) Actualizar informacion de empleado \n"+
 				"(5) Mostrar informacion de empleados  \n"+
 				"(6) Mostrar informacion de equipos \n"+
 				"(6) Agregar alineacion a equipo \n"+
@@ -45,7 +46,7 @@ public class Main{
 			fireEmployee();
 			break;
 		case 3:
-			
+			updateEmployee();
 			break;
 		case 4:
 			 
@@ -360,5 +361,37 @@ public class Main{
 		System.out.println(message);
 		System.out.println("-----------------------------------------------------------");
 	}
+
+	public void updateEmployee(){
+		String message="";
+		sc.nextLine();
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("ACTUALIZAR INFORMACION DE EMPLEADO \n");
+
+		System.out.println("Ingrese el identificador del empleado a actualizar");
+		String id=sc.nextLine();
+		if(club.searchEmployee(id)==0){
+			message="Error. El identificador del empleado no se encuentra vinculado al club";
+		}
+		else{
+			if(club.searchEmployee(id)==1){
+
+			}
+
+			if(club.searchEmployee(id)==2){
+				
+			}
+
+			if(club.searchEmployee(id)==3){
+				
+			}
+			
+		}
+
+		System.out.println("-----------------------------------------------------------");
+		System.out.println(message);
+		System.out.println("-----------------------------------------------------------");
+	}
+
 
 }

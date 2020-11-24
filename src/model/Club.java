@@ -182,4 +182,50 @@ public class Club{
 		return message;
 	}
 
+
+
+
+
+
+
+
+	public int searchEmployee(String id){
+		Employee objEmployee=findEmployee(id);
+		int searched=0;
+		if(objEmployee!=null){
+			if(objEmployee instanceof Player){
+				searched=1;
+			}
+
+			if(objEmployee instanceof HeadCoach){
+				searched=2;
+			}
+
+			if(objEmployee instanceof AssistantCoach){
+				searched=3;
+			}
+
+			
+		}
+		return searched;
+	}
+
+
+
+
+
+
+
+
+	public String showEmployeeInfo(String id){
+		Employee objEmployee=findEmployee(id);
+		String info= "";
+		if(objEmployee==null){
+		 info="Error. El empleado no existe";
+		}else{
+			info=objEmployee.toString();
+		}
+		return info;
+	}
+
 }

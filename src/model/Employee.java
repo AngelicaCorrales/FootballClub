@@ -31,4 +31,24 @@ public abstract class Employee{
 		this.salary=salary;
 	}
 
+	public String statusToString(){
+		String status="";
+		if(activeStatus){
+			status="ACTIVO";
+		}
+		else{
+			status="INACTIVO";
+		}
+		return status;
+	}
+
+	public String toString(){
+		return "**EMPLEADO**\n"+
+				"*Nombre: "+name+"\n"+
+				"*Identificador: "+id+"\n"+
+				"*Salario: "+salary+"\n"+
+				"*Estado: "+statusToString()+"\n";
+
+	}
+
 }

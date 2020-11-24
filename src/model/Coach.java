@@ -9,4 +9,8 @@ public abstract class Coach extends Employee{
 		this.yearsExperience=yearsExperience;
 	}
 	
+	@Override
+	public String toString(){
+		return super.toString()+"*Anios de experiencia: "+yearsExperience+"\n";
+	}
 }
