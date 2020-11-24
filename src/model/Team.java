@@ -85,4 +85,29 @@ public class Team{
 
 	}
 
+
+	public boolean canHireAssistantCoach(){
+		boolean hire=false;
+		for(int i=0; i<assistantCoaches.length && !hire;i++){
+			if(assistantCoaches[i]==null){
+				hire=true;
+			}
+		}
+		return hire;
+	}
+
+	public AssistantCoach hireAssistantCoach(String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill ){
+		boolean exit=false;
+		AssistantCoach objAsCoach=null;
+		for(int i=0; i<assistantCoaches.length && !exit;i++){
+			if(assistantCoaches[i]==null){
+				assistantCoaches[i]=new AssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skill);
+				exit=true;
+				objAsCoach=assistantCoaches[i];
+			}
+		}
+		return objAsCoach;
+
+	}
+
 }

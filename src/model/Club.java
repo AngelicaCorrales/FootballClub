@@ -43,7 +43,8 @@ public class Club{
 		return objEmployee;
 	}
 
-	public String hireTeamPlayer(Team team, String name, String id, double salary, int number, String position ){
+	public String hireTeamEmployee(Team team, String name, String id, double salary, int number, String position ){
+		//player
 		String message="";
 		if(team.canHirePlayer()){
 			if(team.numberPlayerAvailable(number)){
@@ -68,10 +69,10 @@ public class Club{
 		boolean hire;
 		if(objEmployee==null){
 			if(teamName=='A'){
-				message=hireTeamPlayer( teamA,  name,  id,  salary,  number,  position);
+				message=hireTeamEmployee( teamA,  name,  id,  salary,  number,  position);
 			}
 			else{
-				message=hireTeamPlayer( teamB,  name,  id,  salary,  number,  position);
+				message=hireTeamEmployee( teamB,  name,  id,  salary,  number,  position);
 			}
 
 		}
@@ -81,7 +82,8 @@ public class Club{
 		return message;
 	}
 
-	public String hireTeamHeadCoach(Team team, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships ){
+	public String hireTeamEmployee(Team team, String name, String id, double salary, int yearsExperience, int numberTeams, int numberChampionships ){
+		//head coach
 		String message="";
 		if(team.canHireHeadCoach()){
 				employees.add(team.hireHeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships));
@@ -101,10 +103,10 @@ public class Club{
 		boolean hire;
 		if(objEmployee==null){
 			if(teamName=='A'){
-				message=hireTeamHeadCoach( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
 			}
 			else{
-				message=hireTeamHeadCoach( teamB,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
+				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  numberTeams,  numberChampionships);
 			}
 
 		}
@@ -114,9 +116,38 @@ public class Club{
 		return message;
 	}
 
+	public String hireTeamEmployee(Team team, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill ){
+		//assistant
+		String message="";
+		if(team.canHireAssistantCoach()){
+				employees.add(team.hireAssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skill));
+				message="Nuevo entrenador principal contratado exitosamente.";
+
+		}
+		else{
+			message="No se pudo agregar el nuevo entrenador. Ya estan completos los cupos de asistentes tecnicos en el equipo.";
+		}
+		return message;
+	}
+
 	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String skill){
 		//assistantCoach
-		return "";
+		String message="";
+		Employee objEmployee=findEmployee(id);
+		boolean hire;
+		if(objEmployee==null){
+			if(teamName=='A'){
+				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  wasPlayer,  skill);
+			}
+			else{
+				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  wasPlayer,  skill);
+			}
+
+		}
+		else{
+			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
+		}
+		return message;
 	}
 
 }
