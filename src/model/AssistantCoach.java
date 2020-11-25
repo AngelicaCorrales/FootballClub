@@ -18,9 +18,31 @@ public class AssistantCoach extends Coach{
 		
 	}
 
+	public String wasPlayerToString(){
+		String player="";
+		if(wasPlayer){
+			player="SI";
+		}
+		else{
+			player="NO";
+		}
+		return player;
+	}
+
+	public String skillsToString(){
+		String allSkills="";
+
+		for(int i=0; i<skills.length;i++){
+			if(skills[i]!=null){
+				allSkills+=" -"+skills[i].name();
+			}
+		}
+		return allSkills;
+	}
+
 	public String toString(){
 		return super.toString()+ "*Fue jugador: "+wasPlayerToString()+"\n"+
-								"*Experticia(s): "skillsToString()+"\n";
+								"*Experticia(s): "+skillsToString()+"\n";
 	}
 
 }

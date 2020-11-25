@@ -374,6 +374,8 @@ public class Main{
 			message="Error. El identificador del empleado no se encuentra vinculado al club";
 		}
 		else{
+
+			
 			if(club.searchEmployee(id)==1){
 
 			}
