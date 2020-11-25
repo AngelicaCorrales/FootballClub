@@ -375,7 +375,8 @@ public class Main{
 		}
 		else{
 
-			
+			message="\n"+club.showEmployeeInfo(id);
+			System.out.println(message);
 			if(club.searchEmployee(id)==1){
 
 			}
@@ -390,8 +391,7 @@ public class Main{
 			
 		}
 
-		System.out.println("-----------------------------------------------------------");
-		System.out.println(message);
+		
 		System.out.println("-----------------------------------------------------------");
 	}
 
