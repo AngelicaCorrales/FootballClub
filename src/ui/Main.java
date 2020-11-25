@@ -379,21 +379,104 @@ public class Main{
 			message="\n"+club.showEmployeeInfo(id);
 			System.out.println(message);
 			if(club.searchEmployee(id)==1){
-
+				updatePlayer(id);
 			}
 
 			if(club.searchEmployee(id)==2){
-				
+				updateHeadCoach(id);
 			}
 
 			if(club.searchEmployee(id)==3){
-				
+				updateAssistantCoach(id);
 			}
 			
 		}
 
 		
 		System.out.println("-----------------------------------------------------------");
+	}
+
+	public void updatePlayer(String id){
+		int opt;
+		String message="";
+		do{
+			System.out.println("Seleccione la opcion que desea actualizar \n"+
+								"(1) Salario \n"+
+								"(2) Numero de camiseta \n"+
+								"(3) Cantidad de goles que ha marcado en el club \n"+
+								"(4) Calificacion promedio \n"+
+								"(5) Posicion dentro del terreno de juego \n"+
+								"(6) Salir");
+			opt=sc.nextInt();
+
+			switch(opt){
+				case 1:
+					System.out.println("\nIngrese el nuevo salario");
+					double salary=sc.nextDouble();
+					message=club.updateSalary(id, salary)+"\n";
+					break;
+
+				case 2:
+					System.out.println("\nIngrese el nuevo numero de camiseta");
+					int number=sc.nextInt();
+					message=club.updateNumberPlayer(id, number)+"\n";
+					break;
+
+				case 3:
+
+					break;
+
+				case 4:
+
+					break;
+
+				case 5:
+
+					break;
+
+				case 6:
+					message="";
+					break;
+
+				default:
+					message=" Opcion no valida \n";
+			}
+
+		System.out.println(message);
+
+		}while(opt!=6);
+
+
+
+	}
+
+	public void updateHeadCoach(String id){
+		int opt;
+		do{
+			System.out.println("Seleccione la opcion que desea actualizar \n"+
+								"(1) Salario \n"+
+								"(2) Anios de experiencia \n"+
+								"(3) Numero de equipos a cargo en la carrera como manager \n"+
+								"(4) Agregar campeonato conseguido\n"+
+								"(5) Salir");
+			opt=sc.nextInt();
+
+		}while(opt!=5);
+	}
+
+	public void updateAssistantCoach(String id){
+		int opt;
+		do{
+			System.out.println("Seleccione la opcion que desea actualizar \n"+
+						"(1) Salario \n"+
+						"(2) Anios de experiencia \n"+
+						"(3) Numero de equipos a cargo en la carrera como manager \n"+
+						"(4) Agregar campeonato conseguido\n"+
+						"(6) Salir");
+			opt=sc.nextInt();
+
+		}while(opt!=6);
+
 	}
 
 

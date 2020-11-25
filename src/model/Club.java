@@ -213,7 +213,38 @@ public class Club{
 
 
 
+	public String updateSalary(String id, double salary){
+		Employee objEmployee=findEmployee(id);
+		objEmployee.setSalary(salary);
+		return "  Salario actualizado";
+	}
 
+	public String updateNumberPlayer(String id, int number){
+		String message="";
+		Employee objEmployee=findEmployee(id);
+		Employee playerA=teamA.findEmployee(objEmployee);
+		Employee playerB=teamB.findEmployee(objEmployee);
+		if(playerA!=null){
+			if(teamA.numberPlayerAvailable(number)){
+				((Player)playerA).setNumber(number);
+				message="  Numero de camiseta actualizado";
+			}
+			else{
+				message="  Numero de camiseta no disponible";
+			}
+		}
+		if(playerB!=null){
+			if(teamB.numberPlayerAvailable(number)){
+				((Player)playerB).setNumber(number);
+				message="  Numero de camiseta actualizado";
+			}
+			else{
+				message="  Numero de camiseta no disponible";
+			}
+
+		}
+		return message;
+	}
 
 
 
