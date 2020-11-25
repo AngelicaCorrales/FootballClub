@@ -224,7 +224,7 @@ public class Main{
 							System.out.println("\nIngrese el anio del campeonato anterior");
 							championshipYear=sc.nextLine();
 
-							championship= championshipName+" - "+championshipYear;
+							championship= championshipName+" ("+championshipYear+")";
 							championships.add(championship);
 
 
@@ -371,7 +371,8 @@ public class Main{
 		System.out.println("Ingrese el identificador del empleado a actualizar");
 		String id=sc.nextLine();
 		if(club.searchEmployee(id)==0){
-			message="Error. El identificador del empleado no se encuentra vinculado al club";
+			message="  Error. El identificador del empleado no se encuentra vinculado al club";
+			System.out.println(message);
 		}
 		else{
 
