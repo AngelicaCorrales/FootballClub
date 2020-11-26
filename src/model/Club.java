@@ -219,6 +219,21 @@ public class Club{
 		return "  Salario actualizado";
 	}
 
+	public Team findEmployeeInTeam(Employee objEmployee){
+		Team team=null;
+		Employee employeeA=teamA.findEmployee(objEmployee);
+		Employee employeeB=teamB.findEmployee(objEmployee);
+		if(employeeA!=null){
+			team=teamA;
+		}
+
+		if(employeeB!=null){
+			team=teamB;
+		}
+
+		return team;
+	}
+
 	public String updateNumberPlayer(String id, int number){
 		String message="";
 		Employee objEmployee=findEmployee(id);
@@ -244,6 +259,12 @@ public class Club{
 
 		}
 		return message;
+	}
+
+	public String updateGoalsPlayer(String id, int goals){
+		Employee objEmployee=findEmployee(id);
+		objEmployee.setSalary(salary);
+		return "  Salario actualizado";
 	}
 
 

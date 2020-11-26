@@ -423,7 +423,9 @@ public class Main{
 					break;
 
 				case 3:
-
+					System.out.println("\nIngrese la nueva cantidad de goles que ha marcado en el club");
+					int goals=sc.nextInt();
+					message=club.updateGoalsPlayer(id, goals)+"\n";
 					break;
 
 				case 4:

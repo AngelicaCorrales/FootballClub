@@ -38,30 +38,30 @@ public class Team{
 
 	public Employee findEmployee(Employee objEmployee){
 		int counter=0;
-		if(objEmployee instanceof Player){
-			for(int i=0; i<players.length; i++){
-				if(players[i]!=null && players[i]==objEmployee){
-					objEmployee=players[i];
-					counter++;
-				}
-			}
-		}
-
-		if(objEmployee instanceof HeadCoach){
-			if(headCoach!=null && headCoach==objEmployee){
-				objEmployee=headCoach;
+		
+		for(int i=0; i<players.length; i++){
+			if(players[i]!=null && players[i]==objEmployee){
+				objEmployee=players[i];
 				counter++;
 			}
 		}
+	
 
-		if(objEmployee instanceof AssistantCoach){
-			for(int i=0; i<assistantCoaches.length; i++){
-				if(assistantCoaches[i]!=null && assistantCoaches[i]==objEmployee){
-					objEmployee=assistantCoaches[i];
-					counter++;
-				}
+	
+		if(headCoach!=null && headCoach==objEmployee){
+			objEmployee=headCoach;
+			counter++;
+		}
+	
+
+	
+		for(int i=0; i<assistantCoaches.length; i++){
+			if(assistantCoaches[i]!=null && assistantCoaches[i]==objEmployee){
+				objEmployee=assistantCoaches[i];
+				counter++;
 			}
 		}
+		
 		if(counter==0){
 			objEmployee=null;
 		}
