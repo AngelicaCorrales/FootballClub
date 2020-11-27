@@ -18,6 +18,10 @@ public class AssistantCoach extends Coach{
 		
 	}
 
+	public void setWasPlayer(boolean wasPlayer){
+		this.wasPlayer=true;
+	}
+
 	public String wasPlayerToString(){
 		String player="";
 		if(wasPlayer){
@@ -38,6 +42,30 @@ public class AssistantCoach extends Coach{
 			}
 		}
 		return allSkills;
+	}
+
+
+	public String addSkill(String skill){
+		String message="";
+		boolean exit=false;
+		for(int i=0; i<skills.length && !exit;i++){
+			if(skills[i]!=null && skills[i].name().equals(skill)){
+				exit=true;
+			}
+		}
+		if(!exit){
+			for(int i=0; i<skills.length && !exit;i++){
+				if(skills[i]==null){
+					skills[i]=Skill.valueOf(skill);
+					exit=true;
+					message="   Experticia agregada";
+				}
+			}
+		}
+		else{
+			message="   Error. Ya se habia agregado la experticia";
+		}
+		return message;
 	}
 
 	public String toString(){

@@ -299,6 +299,25 @@ public class Club{
 		return message;
 	}
 
+	public String updateWasPlayer(String id){
+		Employee objEmployee=findEmployee(id);
+		((AssistantCoach)objEmployee).setWasPlayer(true);
+
+		return "   Fue jugador: SI (actualizado)";
+
+	}
+
+	public String updateSkill(String id, String skill){
+		String message="";
+		Employee objEmployee=findEmployee(id);
+		message=((AssistantCoach)objEmployee).addSkill(skill);
+
+		return message;
+
+	}
+
+
+
 
 
 	public String showEmployeeInfo(String id){

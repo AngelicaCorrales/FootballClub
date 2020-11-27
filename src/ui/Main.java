@@ -446,36 +446,31 @@ public class Main{
 					System.out.println("\nIngrese la nueva posicion dentro del terreno de juego");
 					String position=sc.nextLine().toUpperCase();
 
-					boolean control;
-					do{
-						if(position.equals("PORTERO") || position.equals("DEFENSOR") || position.equals("VOLANTE") || position.equals("DELANTERO")){
-							
-							if(position.equals("PORTERO")){
-								position= "GOALKEEPER";
-							}
-
-							if(position.equals("DEFENSOR")){
-								position="DEFENDER";
-							}
-
-							if(position.equals("VOLANTE")){
-								position="MIDFIELDER";
-							}
-
-							if(position.equals("DELANTERO")){
-								position="FORDWARD";
-							}
-							control=false;
-
-						}
-						else{
-							control=true;
-							System.out.println("Posicion no valida. Ingrese nuevamente");
+					if(position.equals("PORTERO") || position.equals("DEFENSOR") || position.equals("VOLANTE") || position.equals("DELANTERO")){
+						
+						if(position.equals("PORTERO")){
+							position= "GOALKEEPER";
 						}
 
-					}while(control);
+						if(position.equals("DEFENSOR")){
+							position="DEFENDER";
+						}
 
-					message=club.updatePosition(id, position)+"\n";
+						if(position.equals("VOLANTE")){
+							position="MIDFIELDER";
+						}
+
+						if(position.equals("DELANTERO")){
+							position="FORDWARD";
+						}
+						message=club.updatePosition(id, position)+"\n";
+
+					}
+					else{
+						message="   Posicion no valida.";
+					}
+
+					
 					break;
 
 				case 6:
@@ -538,7 +533,7 @@ public class Main{
 
 					championship= championshipName+" ("+championshipYear+")";
 
-					message=club.updateChampionships(id, championship);					
+					message=club.updateChampionships(id, championship)+"\n";					
 					
 					break;
 
@@ -558,16 +553,85 @@ public class Main{
 
 	public void updateAssistantCoach(String id){
 		int opt;
+		String message="";
 		do{
 			System.out.println("Seleccione la opcion que desea actualizar \n"+
 						"(1) Salario \n"+
 						"(2) Anios de experiencia \n"+
-						"(3) Numero de equipos a cargo en la carrera como manager \n"+
-						"(4) Agregar campeonato conseguido\n"+
-						"(6) Salir");
+						"(3) Cambiar: Ha sido jugador profesional \n"+
+						"(4) Agregar experticia\n"+
+						"(5) Salir");
 			opt=sc.nextInt();
 
-		}while(opt!=6);
+			switch(opt){
+				case 1:
+					System.out.println("\nIngrese el nuevo salario");
+					double salary=sc.nextDouble();
+					message=club.updateSalary(id, salary)+"\n";
+					break;
+
+				case 2:
+					System.out.println("\nIngrese los anios de experiencia actualizados");
+					int yearsExperience=sc.nextInt();
+					message=club.updateYearsExperience(id, yearsExperience)+"\n";
+					break;
+
+				case 3:
+					
+					message=club.updateWasPlayer(id)+"\n";
+					break;
+
+				case 4:
+
+					sc.nextLine();
+					System.out.println("\nIngrese la nueva experticia (ofensivo, defensivo, posesion, jugadas de laboratorio, otra1, otra2)");
+					String skill=sc.nextLine().toUpperCase();
+					
+					if(skill.equals("OFENSIVO") || skill.equals("DEFENSIVO") || skill.equals("POSESION")|| skill.equals("JUGADAS DE LABORATORIO") || skill.equals("OTRA1") || skill.equals("OTRA2")){
+						if(skill.equals("OFENSIVO")){
+							skill="OFFENSIVE";
+						}
+
+						if(skill.equals("DEFENSIVO")){
+							skill="DEFENSIVE";
+						}
+
+						if(skill.equals("POSESION")){
+							skill="POSSESSION";
+						}
+
+						if(skill.equals("JUGADAS DE LABORATORIO")){
+							skill="LABORATORY_PLAYS";
+						}
+
+						if(skill.equals("OTRA1")){
+							skill="OTRA1";
+						}
+
+						if(skill.equals("OTRA2")){
+							skill="OTRA2";
+						}
+
+						message=club.updateSkill(id, skill)+"\n";	
+					}
+					else{
+						message="  Experticia no valida";
+					}
+					
+					break;
+
+				case 5:
+					message="";
+					break;
+
+
+				default:
+					message=" Opcion no valida \n";
+			}
+
+			System.out.println(message);
+
+		}while(opt!=5);
 
 	}
 
