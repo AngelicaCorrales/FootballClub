@@ -27,6 +27,10 @@ public abstract class Employee{
 		return id;
 	}
 
+	public double getSalary(){
+		return salary;
+	}
+
 	public void setSalary(double salary){
 		this.salary=salary;
 	}

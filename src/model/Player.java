@@ -34,12 +34,48 @@ public class Player extends Employee implements Price, Level{
 	}
 
 	public double calculatePrice(){
-		return 1;
+		double price=0;
+		if(position==Position.GOALKEEPER){
+			price=(getSalary()*12)+(averageRating*150);
+		}
+
+		if(position==Position.DEFENDER){
+			price=(getSalary()*13)+(averageRating*125)+(goals*100);
+		}
+
+		if(position==Position.MIDFIELDER){
+			price=(getSalary()*14)+(averageRating*135)+(goals*125);
+		}
+
+		if(position==Position.FORDWARD){
+			price=(getSalary()*15)+(averageRating*145)+(goals*150);
+		}
+
+		return price;
 	}
+	
 
 	public double calculateLevel(){
-		return 1;
+		double level=0;
+		if(position==Position.GOALKEEPER){
+			level=averageRating*0.9;
+		}
+
+		if(position==Position.DEFENDER){
+			level=(averageRating*0.9)+(goals/100);
+		}
+
+		if(position==Position.MIDFIELDER){
+			level=(averageRating*0.9)+(goals/90);
+		}
+
+		if(position==Position.FORDWARD){
+			level=(averageRating*0.9)+(goals/80);
+		}
+
+		return level;
 	}
+	
 
 	public String toString(){
 		return super.toString()+"*Numero de camiseta: "+number+"\n"+
