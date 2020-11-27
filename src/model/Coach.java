@@ -8,6 +8,10 @@ public abstract class Coach extends Employee{
 		super( name,  id,  salary);
 		this.yearsExperience=yearsExperience;
 	}
+
+	public int getYearsExperience(){
+		return yearsExperience;
+	}
 	
 	@Override
 	public String toString(){

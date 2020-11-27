@@ -14,12 +14,13 @@ public class HeadCoach extends Coach implements Price, Level{
 	}
 
 	public double calculatePrice(){
-		return 1;
+		return (getSalary()*10)+(getYearsExperience()*100)+(championships.size()*50);
 	}
-
+	
 	public double calculateLevel(){
-		return 1;
+		return 5+(championships.size()/10);
 	}
+	
 
 	public String championshipsToString(){
 		String chString="";
