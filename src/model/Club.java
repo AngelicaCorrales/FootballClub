@@ -18,13 +18,13 @@ public class Club{
 	private ArrayList<Employee> employees;
 	private Coach[][] office;
 
-	public Club(String name, String nit, String foundationDate){
+	public Club(String name, String nit, String foundationDate, String nameTA, String nameTB){
 		this.name=name;
 		this.nit=nit;
 		this.foundationDate=foundationDate;
 
-		teamA=new Team('A');
-		teamB=new Team('B');
+		teamA=new Team('A', nameTA);
+		teamB=new Team('B', nameTB);
 		employees=new ArrayList<Employee>();
 		office= new Coach[MAX_OFFICE_ROWS][MAX_OFFICE_COLS];
 
@@ -66,13 +66,13 @@ public class Club{
 		return message;
 	}
 
-	public String hireEmployee(char teamName, String name, String id, double salary, int number, String position){
+	public String hireEmployee(char team, String name, String id, double salary, int number, String position){
 		//player
 		String message="";
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
-			if(teamName==teamA.getName()){
+			if(team==teamA.getTeam()){
 				message=hireTeamEmployee( teamA,  name,  id,  salary,  number,  position);
 			}
 			else{
@@ -100,13 +100,13 @@ public class Club{
 		return message;
 	}
 
-	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, int numberTeams, ArrayList<String> championships){
+	public String hireEmployee(char team, String name, String id, double salary, int yearsExperience, int numberTeams, ArrayList<String> championships){
 		//headCoach
 		String message="";
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
-			if(teamName=='A'){
+			if(team==teamA.getTeam()){
 				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  championships);
 			}
 			else{
@@ -134,13 +134,13 @@ public class Club{
 		return message;
 	}
 
-	public String hireEmployee(char teamName, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String[] skills){
+	public String hireEmployee(char team, String name, String id, double salary, int yearsExperience, boolean wasPlayer, String[] skills){
 		//assistantCoach
 		String message="";
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
-			if(teamName=='A'){
+			if(team==teamA.getTeam()){
 				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
 			}
 			else{
@@ -251,7 +251,6 @@ public class Club{
 	}
 
 	public String updateGoalsPlayer(String id, int goals){
-		String message="";
 		Employee objEmployee=findEmployee(id);
 		
 		((Player)objEmployee).setGoals(goals);
@@ -260,7 +259,6 @@ public class Club{
 	}
 
 	public String updateAverageRatingPlayer(String id, double averageRating){
-		String message="";
 		Employee objEmployee=findEmployee(id);
 		
 		((Player)objEmployee).setAverageRating(averageRating);
@@ -269,12 +267,36 @@ public class Club{
 	}
 
 	public String updatePosition(String id, String position){
-		String message="";
 		Employee objEmployee=findEmployee(id);
 		
 		((Player)objEmployee).setPosition(position);
 
 		return "  Posicion actualizada";
+	}
+
+	public String updateYearsExperience(String id, int yearsExperience){
+		Employee objEmployee=findEmployee(id);
+		
+		((Coach)objEmployee).setYearsExperience(yearsExperience);
+
+		return "  Anios de experiencia actualizados";
+	}
+
+	public String updateNumberTeams(String id, int numberTeams){
+		Employee objEmployee=findEmployee(id);
+		
+		((HeadCoach)objEmployee).setNumberTeams(numberTeams);
+
+		return "  Numero de equipos actualizados";
+	}
+
+	public String updateChampionships(String id, String championship){
+		String message="";
+		Employee objEmployee=findEmployee(id);
+		
+		message=((HeadCoach)objEmployee).addChampionship(championship);
+
+		return message;
 	}
 
 

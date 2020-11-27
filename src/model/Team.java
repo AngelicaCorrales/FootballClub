@@ -14,7 +14,8 @@ public class Team{
 	
 
 	//attributes
-	private char name;
+	private char team;
+	private String name;
 	private Player[] players;
 	private Player[][] changingRoom;
 
@@ -23,10 +24,11 @@ public class Team{
 
 	private ArrayList<Lineup> lineups;
 
-	public Team(char name){
+	public Team(char team, String name){
+		this.team=team;
 		this.name=name;
 		players=new Player[MAX_PLAYERS];
-		if(name=='A'){
+		if(team=='A'){
 			changingRoom=new Player[MAX_CRA_ROWS][MAX_CRA_COLS];
 		}
 		else{
@@ -40,7 +42,11 @@ public class Team{
 
 	}
 
-	public char getName(){
+	public char getTeam(){
+		return team;
+	}
+
+	public String getName(){
 		return name;
 	}
 

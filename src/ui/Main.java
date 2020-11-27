@@ -110,8 +110,16 @@ public class Main{
 		}while(year<1900 ||year>2020);
 
 		String foundationDate=day+"/"+month+"/"+year;
+
+		sc.nextLine();
+		System.out.println("\nIngrese el nombre del equipo A del club");
+		String nameTA=sc.nextLine();
+
+		System.out.println("\nIngrese el nombre del equipo B del club");
+		String nameTB=sc.nextLine();
+
 		
-		club= new Club(name, nit, foundationDate);
+		club= new Club(name, nit, foundationDate, nameTA, nameTB);
 		System.out.println("-----------------------------------------------------------");
 	}
 
@@ -212,9 +220,10 @@ public class Main{
 
 					ArrayList<String> championships= new ArrayList<String>();
 					String championshipName, championshipYear, championship;
+					
+					System.out.println("\nHa conseguido algun campeonato? (1) Si,(Cualquier numero) No");
+					int optionch=sc.nextInt();
 					do{
-						System.out.println("\nHa conseguido algun campeonato? (1) Si,(Cualquier numero) No");
-						int optionch=sc.nextInt();
 
 						if(optionch==1){
 							sc.nextLine();
@@ -245,7 +254,6 @@ public class Main{
 							if(other!=1){
 								exit=true;
 							}
-							sc.nextLine();
 
 						}
 						else{
@@ -488,6 +496,7 @@ public class Main{
 
 	public void updateHeadCoach(String id){
 		int opt;
+		String message="";
 		do{
 			System.out.println("Seleccione la opcion que desea actualizar \n"+
 								"(1) Salario \n"+
@@ -496,6 +505,53 @@ public class Main{
 								"(4) Agregar campeonato conseguido\n"+
 								"(5) Salir");
 			opt=sc.nextInt();
+
+			switch(opt){
+				case 1:
+					System.out.println("\nIngrese el nuevo salario");
+					double salary=sc.nextDouble();
+					message=club.updateSalary(id, salary)+"\n";
+					break;
+
+				case 2:
+					System.out.println("\nIngrese los anios de experiencia actualizados");
+					int yearsExperience=sc.nextInt();
+					message=club.updateYearsExperience(id, yearsExperience)+"\n";
+					break;
+
+				case 3:
+					System.out.println("\nIngrese el numero de equipos a cargo en la carrera como manager actualizados");
+					int numberTeams=sc.nextInt();
+					message=club.updateNumberTeams(id, numberTeams)+"\n";
+					break;
+
+				case 4:
+					
+					String championshipName, championshipYear, championship;
+
+					sc.nextLine();
+					System.out.println("\nIngrese el nombre del campeonato conseguido");
+					championshipName=sc.nextLine();
+
+					System.out.println("\nIngrese el anio del campeonato");
+					championshipYear=sc.nextLine();
+
+					championship= championshipName+" ("+championshipYear+")";
+
+					message=club.updateChampionships(id, championship);					
+					
+					break;
+
+				case 5:
+					message="";
+					break;
+
+
+				default:
+					message=" Opcion no valida \n";
+			}
+
+			System.out.println(message);
 
 		}while(opt!=5);
 	}

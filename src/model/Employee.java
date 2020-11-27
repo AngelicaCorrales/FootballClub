@@ -50,7 +50,7 @@ public abstract class Employee{
 		return "**EMPLEADO**\n"+
 				"*Nombre: "+name+"\n"+
 				"*Identificador: "+id+"\n"+
-				"*Salario: "+salary+"\n"+
+				"*Salario: $"+salary+"\n"+
 				"*Estado: "+statusToString()+"\n";
 
 	}

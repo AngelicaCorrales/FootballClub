@@ -1,4 +1,4 @@
 package model;
 public interface Level{
-	public double calculateLevel();
+	public int calculateLevel();
 }

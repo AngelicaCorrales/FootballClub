@@ -55,22 +55,22 @@ public class Player extends Employee implements Price, Level{
 	}
 	
 
-	public double calculateLevel(){
-		double level=0;
+	public int calculateLevel(){
+		int level=0;
 		if(position==Position.GOALKEEPER){
-			level=averageRating*0.9;
+			level=(int)(averageRating*0.9);
 		}
 
 		if(position==Position.DEFENDER){
-			level=(averageRating*0.9)+(goals/100);
+			level=(int)((averageRating*0.9)+(goals/100));
 		}
 
 		if(position==Position.MIDFIELDER){
-			level=(averageRating*0.9)+(goals/90);
+			level=((int)(averageRating*0.9)+(goals/90));
 		}
 
 		if(position==Position.FORDWARD){
-			level=(averageRating*0.9)+(goals/80);
+			level=(int)((averageRating*0.9)+(goals/80));
 		}
 
 		return level;
@@ -82,7 +82,7 @@ public class Player extends Employee implements Price, Level{
 								"*Cantidad de goles que ha marcado en el club: "+goals+"\n"+
 								"*Calificacion promedio: "+averageRating+"\n"+
 								"*Posicion: "+position.name()+"\n"+
-								"*Precio del mercado: "+calculatePrice()+"\n"+
+								"*Precio del mercado: $"+calculatePrice()+"\n"+
 								"*Nivel: "+calculateLevel()+"\n";
 	}
 
