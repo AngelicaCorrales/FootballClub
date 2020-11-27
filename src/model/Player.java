@@ -21,6 +21,18 @@ public class Player extends Employee implements Price, Level{
 		return number;
 	}
 
+	public void setGoals(int goals){
+		this.goals=goals;
+	}
+
+	public void setAverageRating(double averageRating){
+		this.averageRating=averageRating;
+	}
+
+	public void setPosition(String position){
+		this.position=Position.valueOf(position);
+	}
+
 	public double calculatePrice(){
 		return 1;
 	}

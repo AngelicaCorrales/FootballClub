@@ -429,11 +429,45 @@ public class Main{
 					break;
 
 				case 4:
-
+					System.out.println("\nIngrese la nueva calificacion promedio");
+					double averageRating=sc.nextDouble();
+					message=club.updateAverageRatingPlayer(id, averageRating)+"\n";
 					break;
 
 				case 5:
+					System.out.println("\nIngrese la nueva posicion dentro del terreno de juego");
+					String position=sc.nextLine().toUpperCase();
 
+					boolean control;
+					do{
+						if(position.equals("PORTERO") || position.equals("DEFENSOR") || position.equals("VOLANTE") || position.equals("DELANTERO")){
+							
+							if(position.equals("PORTERO")){
+								position= "GOALKEEPER";
+							}
+
+							if(position.equals("DEFENSOR")){
+								position="DEFENDER";
+							}
+
+							if(position.equals("VOLANTE")){
+								position="MIDFIELDER";
+							}
+
+							if(position.equals("DELANTERO")){
+								position="FORDWARD";
+							}
+							control=false;
+
+						}
+						else{
+							control=true;
+							System.out.println("Posicion no valida. Ingrese nuevamente");
+						}
+
+					}while(control);
+
+					message=club.updatePosition(id, position)+"\n";
 					break;
 
 				case 6:
