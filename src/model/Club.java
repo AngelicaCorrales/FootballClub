@@ -16,7 +16,7 @@ public class Club{
 	private Team teamA;
 	private Team teamB;
 	private ArrayList<Employee> employees;
-	private Coach[][] office;
+	private Coach[][] offices;
 
 	public Club(String name, String nit, String foundationDate, String nameTA, String nameTB){
 		this.name=name;
@@ -26,7 +26,7 @@ public class Club{
 		teamA=new Team('A', nameTA);
 		teamB=new Team('B', nameTB);
 		employees=new ArrayList<Employee>();
-		office= new Coach[MAX_OFFICE_ROWS][MAX_OFFICE_COLS];
+		offices= new Coach[MAX_OFFICE_ROWS][MAX_OFFICE_COLS];
 
 	}
 
@@ -330,5 +330,50 @@ public class Club{
 		}
 		return info;
 	}
+
+
+
+
+
+	public String placeCoachesInOffices(){
+		String location="";
+		boolean exit;
+		for(int i=0; i<employees.size();i++){
+			exit=false;
+			if(employees.get(i).getActiveStatus() && employees.get(i) instanceof Coach){
+				
+				for(int j=0; j<MAX_OFFICE_ROWS && !exit;j+=2){
+					for(int k=0; k<MAX_OFFICE_COLS && !exit;k+=2){
+						if(offices[j][k]==null){
+							offices[j][k]=(Coach)employees.get(i);
+							exit=true;
+						}
+						else if(offices[j][k]==employees.get(i)){
+							exit=true;
+						}
+					}
+				}
+
+			}
+		}
+
+
+		for(int i=0; i<MAX_OFFICE_ROWS; i++){
+			for(int j=0; j<MAX_OFFICE_COLS;j++){
+				if(offices[i][j]!=null){
+					location+=" ["+offices[i][j].getName()+"] ";
+				}
+				else{
+					location+=" [ X ] ";
+				}
+			}
+			location+="\n";
+		}
+
+		return location;
+	}
+
+
+
 
 }

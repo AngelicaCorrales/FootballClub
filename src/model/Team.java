@@ -17,7 +17,7 @@ public class Team{
 	private char team;
 	private String name;
 	private Player[] players;
-	private Player[][] changingRoom;
+	private Player[][] changingRooms;
 
 	private AssistantCoach[] assistantCoaches;
 	private HeadCoach headCoach;
@@ -29,10 +29,10 @@ public class Team{
 		this.name=name;
 		players=new Player[MAX_PLAYERS];
 		if(team=='A'){
-			changingRoom=new Player[MAX_CRA_ROWS][MAX_CRA_COLS];
+			changingRooms=new Player[MAX_CRA_ROWS][MAX_CRA_COLS];
 		}
 		else{
-			changingRoom=new Player[MAX_CRB_ROWS][MAX_CRB_COLS];
+			changingRooms=new Player[MAX_CRB_ROWS][MAX_CRB_COLS];
 		}
 		
 		assistantCoaches=new AssistantCoach[MAX_AS_COACHES];

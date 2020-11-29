@@ -15,6 +15,11 @@ public abstract class Employee{
 		this.activeStatus=true;
 
 	}
+
+	public String getName(){
+		return name;
+	}
+
 	public boolean getActiveStatus(){
 		return activeStatus;
 	}

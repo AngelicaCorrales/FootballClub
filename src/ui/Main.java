@@ -25,12 +25,12 @@ public class Main{
 				"(1) Contratar empleado\n"+
 				"(2) Despedir empleado \n"+
 				"(3) Actualizar informacion de empleado \n"+
+				"(4) Actualizar informacion de equipo\n"+
+				"(5) Ubicar entrenadores en oficinas \n"+
+				"(6) Ubicar jugadores en camerinos \n"+
+				"(7) Mostrar informacion de todo el club\n"+
 				"(5) Mostrar informacion de empleados  \n"+
 				"(6) Mostrar informacion de equipos \n"+
-				"(6) Agregar alineacion a equipo \n"+
-				"(7) Ubicar entrenadores en oficinas \n"+
-				"(7) Ubicar jugadores en camerinos \n"+
-				"(7) Mostrar informacion de todo el club\n"+
 				"(8) Salir");
 		int option= sc.nextInt();
 		return option;
@@ -485,8 +485,6 @@ public class Main{
 
 		}while(opt!=6);
 
-
-
 	}
 
 	public void updateHeadCoach(String id){
@@ -634,6 +632,7 @@ public class Main{
 		}while(opt!=5);
 
 	}
+
 
 
 }
