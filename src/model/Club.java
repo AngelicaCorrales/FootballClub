@@ -168,7 +168,7 @@ public class Club{
 			message="Error. El empleado no existe";
 		}
 		else{
-			if(objEmployee.getActiveStatus()==true){
+			if(objEmployee.getActiveStatus()){
 				objEmployee.setActiveStatus(false);
 				teamA.fireEmployee(objEmployee);
 				teamB.fireEmployee(objEmployee);
@@ -338,19 +338,33 @@ public class Club{
 	public String placeCoachesInOffices(){
 		String location="";
 		boolean exit;
+
+		for(int i=0; i<MAX_OFFICE_ROWS;i+=2){
+			for(int j=0; j<MAX_OFFICE_COLS;j+=2){
+				if(offices[i][j]!=null && !offices[i][j].getActiveStatus()){
+						offices[i][j]=null;
+				}
+			}
+		}
+
 		for(int i=0; i<employees.size();i++){
 			exit=false;
 			if(employees.get(i).getActiveStatus() && employees.get(i) instanceof Coach){
 				
 				for(int j=0; j<MAX_OFFICE_ROWS && !exit;j+=2){
 					for(int k=0; k<MAX_OFFICE_COLS && !exit;k+=2){
+						
 						if(offices[j][k]==null){
 							offices[j][k]=(Coach)employees.get(i);
 							exit=true;
 						}
-						else if(offices[j][k]==employees.get(i)){
-							exit=true;
+						else{
+							 if(offices[j][k]==employees.get(i)){
+								exit=true;
+							}
+							
 						}
+						
 					}
 				}
 

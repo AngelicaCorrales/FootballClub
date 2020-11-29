@@ -24,16 +24,23 @@ public class Team{
 
 	private ArrayList<Lineup> lineups;
 
+	private int MAX_CR_ROWS;
+	private int MAX_CR_COLS;
+
 	public Team(char team, String name){
 		this.team=team;
 		this.name=name;
 		players=new Player[MAX_PLAYERS];
 		if(team=='A'){
-			changingRooms=new Player[MAX_CRA_ROWS][MAX_CRA_COLS];
+			MAX_CR_ROWS=MAX_CRA_ROWS;
+			MAX_CR_COLS=MAX_CRA_COLS;
+			
 		}
 		else{
-			changingRooms=new Player[MAX_CRB_ROWS][MAX_CRB_COLS];
+			MAX_CR_ROWS=MAX_CRB_ROWS;
+			MAX_CR_COLS=MAX_CRB_COLS;
 		}
+		changingRooms=new Player[MAX_CR_ROWS][MAX_CR_COLS];
 		
 		assistantCoaches=new AssistantCoach[MAX_AS_COACHES];
 		lineups= new ArrayList<Lineup>();
@@ -188,5 +195,45 @@ public class Team{
 
 
 	}
+
+	/*
+	public String placePlayersInChRooms(){
+		String location="";
+		boolean exit;
+		for(int i=0; i<players.length;i++){
+			exit=false;
+			if(players[i]!= null){
+				
+				for(int j=0; j<MAX_CR_ROWS && !exit;j+=2){
+					for(int k=0; k<MAX_CR_COLS && !exit;k+=2){
+						if(offices[j][k]==null){
+							offices[j][k]=(Coach)players[i];
+							exit=true;
+						}
+						else if(offices[j][k]==players[i]){
+							exit=true;
+						}
+					}
+				}
+
+			}
+		}
+
+
+		for(int i=0; i<MAX_CR_ROWS; i++){
+			for(int j=0; j<MAX_CR_COLS;j++){
+				if(offices[i][j]!=null){
+					location+=" ["+offices[i][j].getName()+"] ";
+				}
+				else{
+					location+=" [ X ] ";
+				}
+			}
+			location+="\n";
+		}
+
+		return location;
+	}
+	*/
 
 }
