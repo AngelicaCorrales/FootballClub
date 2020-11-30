@@ -249,6 +249,23 @@ public class Team{
 			}
 			location+="\n";
 		}
+		if(MAX_CR_COLS==MAX_CRB_COLS){
+			if(players[MAX_PLAYERS-4]!=null){
+				location+="Jugador(es) sin camerino: "+players[MAX_PLAYERS-4].getName();
+
+				if(players[MAX_PLAYERS-3]!=null){
+					location+=", "+players[MAX_PLAYERS-3].getName();
+
+					if(players[MAX_PLAYERS-2]!=null){
+						location+=", "+players[MAX_PLAYERS-2].getName();
+						
+						if(players[MAX_PLAYERS-1]!=null){
+							location+=", "+players[MAX_PLAYERS-1].getName();
+						}
+					}
+				}
+			}
+		}
 
 		return location;
 	}
