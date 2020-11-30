@@ -392,6 +392,6 @@ public class Club{
 		}
 	}
 
-	
+
 
 }

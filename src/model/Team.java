@@ -202,6 +202,8 @@ public class Team{
 	public String changingRoomLocations(){
 		String location="";
 		boolean exit;
+		boolean[] hasCR= new boolean[players.length];
+		boolean allHaveCR=true;
 
 		List<Player> playerList = Arrays.asList(players);
 
@@ -249,24 +251,41 @@ public class Team{
 			}
 			location+="\n";
 		}
-		if(MAX_CR_COLS==MAX_CRB_COLS){
-			if(players[MAX_PLAYERS-4]!=null){
-				location+="Jugador(es) sin camerino: "+players[MAX_PLAYERS-4].getName();
 
-				if(players[MAX_PLAYERS-3]!=null){
-					location+=", "+players[MAX_PLAYERS-3].getName();
 
-					if(players[MAX_PLAYERS-2]!=null){
-						location+=", "+players[MAX_PLAYERS-2].getName();
-						
-						if(players[MAX_PLAYERS-1]!=null){
-							location+=", "+players[MAX_PLAYERS-1].getName();
+		for(int k=0; k<players.length;k++){
+			exit=false;
+			if(players[k]!=null){
+				for(int i=0; i<MAX_CR_ROWS && !exit; i++){
+					for(int j=0; j<MAX_CR_COLS && !exit;j++){
+						if(changingRooms[i][j]==players[k]){
+							hasCR[k]=true;
+							exit=true;
+						}
+						else{
+							hasCR[k]=false;
 						}
 					}
 				}
 			}
 		}
 
+		for(int i=0; i<players.length && allHaveCR; i++){
+			if(players[i]!=null && !hasCR[i]){
+				allHaveCR=false;
+			}
+		}
+
+		
+		if(!allHaveCR){
+			location+="   Jugador(es) sin camerino: ";
+			for(int i=0; i<players.length; i++){
+				if(players[i]!=null && !hasCR[i]){
+					location+="\n    **"+players[i].getName();
+				}
+			}
+		}
+		
 		return location;
 	}
 
