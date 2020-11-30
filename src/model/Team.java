@@ -57,6 +57,10 @@ public class Team{
 		return name;
 	}
 
+	public void setName(String name){
+		this.name=name;
+	}
+
 	public Employee findEmployee(Employee objEmployee){
 		int counter=0;
 		

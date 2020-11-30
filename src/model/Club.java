@@ -18,13 +18,13 @@ public class Club{
 	private ArrayList<Employee> employees;
 	private Coach[][] offices;
 
-	public Club(String name, String nit, String foundationDate, String nameTA, String nameTB){
+	public Club(String name, String nit, String foundationDate, String teamNameA, String teamNameB){
 		this.name=name;
 		this.nit=nit;
 		this.foundationDate=foundationDate;
 
-		teamA=new Team('A', nameTA);
-		teamB=new Team('B', nameTB);
+		teamA=new Team('A', teamNameA);
+		teamB=new Team('B', teamNameB);
 		employees=new ArrayList<Employee>();
 		offices= new Coach[MAX_OFFICE_ROWS][MAX_OFFICE_COLS];
 
@@ -45,6 +45,18 @@ public class Club{
 			}
 		}
 		return objEmployee;
+	}
+
+	public Team findTeam(char teamX){
+		Team team=null;
+		if(teamX==teamA.getTeam()){
+			team=teamA;
+		}
+		else{
+			team=teamB;
+		}
+
+		return team;
 	}
 
 	public String hireTeamEmployee(Team team, String name, String id, double salary, int number, String position ){
@@ -72,13 +84,9 @@ public class Club{
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
-			if(team==teamA.getTeam()){
-				message=hireTeamEmployee( teamA,  name,  id,  salary,  number,  position);
-			}
-			else{
-				message=hireTeamEmployee( teamB,  name,  id,  salary,  number,  position);
-			}
-
+			
+			message=hireTeamEmployee( findTeam(team),  name,  id,  salary,  number,  position);
+		
 		}
 		else{
 			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
@@ -107,13 +115,9 @@ public class Club{
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
-			if(team==teamA.getTeam()){
-				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  numberTeams,  championships);
-			}
-			else{
-				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  numberTeams,  championships);
-			}
-
+			
+			message=hireTeamEmployee( findTeam(team),  name,  id,  salary,  yearsExperience,  numberTeams,  championships);
+			
 		}
 		else{
 			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
@@ -142,12 +146,8 @@ public class Club{
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
-			if(team==teamA.getTeam()){
-				message=hireTeamEmployee( teamA,  name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
-			}
-			else{
-				message=hireTeamEmployee( teamB,  name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
-			}
+			
+			message=hireTeamEmployee( findTeam(team),  name,  id,  salary,  yearsExperience,  wasPlayer,  skills);
 
 		}
 		else{
@@ -392,6 +392,14 @@ public class Club{
 		}
 	}
 
+	public String updateTeamName(char teamX, String teamName){
+		findTeam(teamX).setName(teamName);
 
+		return "   Nombre del equipo actualizado";
+	}	
+
+	public String addLineup(char teamX, String dateLineup, String tactic, int defenders, int midfielders, int fordwards){
+		return "";
+	}
 
 }

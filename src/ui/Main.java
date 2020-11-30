@@ -26,8 +26,6 @@ public class Main{
 				"(2) Despedir empleado \n"+
 				"(3) Actualizar informacion de empleado \n"+
 				"(4) Actualizar informacion de equipo\n"+
-				"(5) Ubicar entrenadores en oficinas \n"+
-				"(6) Ubicar jugadores en camerinos \n"+
 				"(7) Mostrar informacion de todo el club\n"+
 				"(5) Mostrar informacion de empleados  \n"+
 				"(6) Mostrar informacion de equipos \n"+
@@ -49,7 +47,7 @@ public class Main{
 			updateEmployee();
 			break;
 		case 4:
-			
+			updateTeam();
 			break;
 		case 5:
 			
@@ -113,13 +111,13 @@ public class Main{
 
 		sc.nextLine();
 		System.out.println("\nIngrese el nombre del equipo A del club");
-		String nameTA=sc.nextLine();
+		String teamNameA=sc.nextLine();
 
 		System.out.println("\nIngrese el nombre del equipo B del club");
-		String nameTB=sc.nextLine();
+		String teamNameB=sc.nextLine();
 
 		
-		club= new Club(name, nit, foundationDate, nameTA, nameTB);
+		club= new Club(name, nit, foundationDate, teamNameA, teamNameB);
 		System.out.println("-----------------------------------------------------------");
 	}
 
@@ -145,14 +143,14 @@ public class Main{
 		String team;
 		do{
 			error= false;
-			System.out.println("\nIngrese el nombre del equipo al que va a pertenecer el nuevo empleado (A o B)");
+			System.out.println("\nIngrese el equipo al que va a pertenecer el nuevo empleado (A o B)");
 			team=sc.nextLine().toUpperCase();
 			if(!team.equals("A") && !team.equals("B")){
 				error=true;
 			}
 
 		}while(error);
-		char teamName=team.charAt(0);
+		char teamX=team.charAt(0);
 
 
 		System.out.println("\nIngrese el nombre del nuevo empleado");
@@ -202,7 +200,7 @@ public class Main{
 
 				}while(control);
 
-				message=club.hireEmployee(teamName, name, id, salary, number, position);
+				message=club.hireEmployee(teamX, name, id, salary, number, position);
 
 				break;
 
@@ -262,7 +260,7 @@ public class Main{
 					}while(!exit);
 
 
-					message=club.hireEmployee(teamName, name, id, salary, yearsExperience, numberTeams, championships);
+					message=club.hireEmployee(teamX, name, id, salary, yearsExperience, numberTeams, championships);
 				}
 				else{
 					System.out.println("\nIngrese (1) si ha sido jugador profesional en algun momento de su vida, cualquier otro numero si no");
@@ -340,7 +338,7 @@ public class Main{
 					}
 
 
-					message=club.hireEmployee(teamName, name, id, salary, yearsExperience, wasPlayer, skills);
+					message=club.hireEmployee(teamX, name, id, salary, yearsExperience, wasPlayer, skills);
 				}
 
 				break;
@@ -633,5 +631,173 @@ public class Main{
 
 	}
 
+	public void updateTeam(){
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("ACTUALIZAR INFORMACION DE EQUIPO\n");
+		boolean error;
+		int opt;
+		String message="";
+
+		String team;
+		sc.nextLine();
+		do{
+			error= false;
+			System.out.println("\nIngrese el equipo a actualizar (A o B)");
+			team=sc.nextLine().toUpperCase();
+			if(!team.equals("A") && !team.equals("B")){
+				error=true;
+			}
+
+		}while(error);
+		char teamX=team.charAt(0);
+
+		do{
+			System.out.println("\nSeleccione la opcion que desea actualizar \n"+
+						"(1) Nombre del equipo \n"+
+						"(2) Agregar alineacion\n"+
+						"(3) Salir");
+			opt=sc.nextInt();
+
+			
+			switch(opt){
+				case 1:
+					sc.nextLine();
+					System.out.println("\nIngrese el nuevo nombre del equipo");
+					String teamName=sc.nextLine();
+					message=club.updateTeamName(teamX, teamName);
+					break;
+
+				case 2:
+					int day,month, year;
+					System.out.println("\nFECHA DE ALINEACION (primero el dia, luego mes, por ultimo anio");
+					do{
+						System.out.println("\nIngrese el dia");
+						day=sc.nextInt();
+						if(day<1 ||day>31){
+							System.out.println("\n No valido");
+						}
+					}while(day<1 ||day>31);
+
+					
+					do{
+						System.out.println("\nIngrese el mes (en formato numerico)");
+						month=sc.nextInt();
+						if(month<1 ||month>12){
+							System.out.println("\n No valido");
+						}
+					}while(month<1 ||month>12);
+
+					
+					do{
+						System.out.println("\nIngrese el anio");
+						year=sc.nextInt();
+						if(year<1900 ||year>2020){
+							System.out.println("\n No valido");
+						}
+					}while(year<1900 ||year>2020);
+
+					String dateLineup=day+"/"+month+"/"+year;
+
+					sc.nextLine();
+					boolean control;
+					String tactic;
+					do{
+						System.out.println("\nIngrese la tactica (posesion, contraataque, presion alta, o por defecto)");
+						tactic=sc.nextLine().toUpperCase();
+							if(tactic.equals("POSESION") || tactic.equals("CONTRAATAQUE") || tactic.equals("PRESION ALTA") || tactic.equals("POR DEFECTO")){
+						
+								if(tactic.equals("POSESION")){
+									tactic= "POSSESSION";
+								}
+
+								if(tactic.equals("CONTRAATAQUE")){
+									tactic="COUNTERATTACK";
+								}
+
+								if(tactic.equals("PRESION ALTA")){
+									tactic="HIGH_PRESSURE";
+								}
+
+								if(tactic.equals("POR DEFECTO")){
+									tactic="DEFAULT";
+								}
+								control=false;
+
+							}
+							else{
+								control=true;
+								System.out.println("Tactica no valida. Ingrese nuevamente");
+							}
+					}while(control);
+
+					System.out.println("\nFORMACION EN EL CAMPO");
+					int defenders, midfielders, fordwards;
+					do{
+						do{
+							System.out.println("\nIngrese el numero de defensores");
+							defenders=sc.nextInt();
+							if(defenders<1 || defenders>8){
+								System.out.println("\n   No valido");
+								control=true;
+							}
+							else{
+								control=false;
+							}
+
+						}while(control);
+
+						do{
+							System.out.println("\nIngrese el numero de volantes");
+							midfielders=sc.nextInt();
+							if(midfielders<1 || midfielders>8){
+								System.out.println("\n   No valido");
+								control=true;
+							}
+							else{
+								control=false;
+							}
+						}while(control);
+
+						do{
+							System.out.println("\nIngrese el numero de delanteros");
+							fordwards=sc.nextInt();
+							if(fordwards<1 || fordwards>8){
+								System.out.println("\n   No valido");
+								control=true;
+							}
+							else{
+								control=false;
+							}
+						}while(control);
+
+						int total=defenders+midfielders+fordwards;
+
+						if(total!=10){
+							System.out.println("Error. No hay diez jugadores en el campo. Ingrese nuevamente");
+							control=true;
+						}
+					}while(control);
+
+					message=club.addLineup(teamX, dateLineup, tactic, defenders, midfielders, fordwards);
+
+					break;
+
+				case 3:
+					message="";
+					break;
+
+
+				default:
+					message=" Opcion no valida \n";
+			}
+
+			System.out.println(message);
+
+
+
+		}while(opt!=3);
+		System.out.println("-----------------------------------------------------------");
+
+	}
 
 }
