@@ -91,6 +91,7 @@ public class Club{
 		String message="";
 		if(team.canHireHeadCoach()){
 				employees.add(team.hireHeadCoach(name,  id,  salary,  yearsExperience,  numberTeams,  championships));
+				placeCoachInOffice((Coach)findEmployee(id));
 				message="Nuevo entrenador principal contratado exitosamente.";
 
 		}
@@ -125,7 +126,8 @@ public class Club{
 		String message="";
 		if(team.canHireAssistantCoach()){
 				employees.add(team.hireAssistantCoach(name,  id,  salary,  yearsExperience,  wasPlayer,  skills));
-				message="Nuevo entrenador principal contratado exitosamente.";
+				placeCoachInOffice((Coach)findEmployee(id));
+				message="Nuevo entrenador asistente contratado exitosamente.";
 
 		}
 		else{
@@ -172,6 +174,10 @@ public class Club{
 				objEmployee.setActiveStatus(false);
 				teamA.fireEmployee(objEmployee);
 				teamB.fireEmployee(objEmployee);
+
+				if(objEmployee instanceof Coach){
+					removeCoachInOffice((Coach)objEmployee);
+				}
 				
 				message="El empleado ha sido despedido exitosamente";
 			}
@@ -335,42 +341,9 @@ public class Club{
 
 
 
-	public String placeCoachesInOffices(){
+	public String officeLocations(){
 		String location="";
 		boolean exit;
-
-		for(int i=0; i<MAX_OFFICE_ROWS;i+=2){
-			for(int j=0; j<MAX_OFFICE_COLS;j+=2){
-				if(offices[i][j]!=null && !offices[i][j].getActiveStatus()){
-						offices[i][j]=null;
-				}
-			}
-		}
-
-		for(int i=0; i<employees.size();i++){
-			exit=false;
-			if(employees.get(i).getActiveStatus() && employees.get(i) instanceof Coach){
-				
-				for(int j=0; j<MAX_OFFICE_ROWS && !exit;j+=2){
-					for(int k=0; k<MAX_OFFICE_COLS && !exit;k+=2){
-						
-						if(offices[j][k]==null){
-							offices[j][k]=(Coach)employees.get(i);
-							exit=true;
-						}
-						else{
-							 if(offices[j][k]==employees.get(i)){
-								exit=true;
-							}
-							
-						}
-						
-					}
-				}
-
-			}
-		}
-
 
 		for(int i=0; i<MAX_OFFICE_ROWS; i++){
 			for(int j=0; j<MAX_OFFICE_COLS;j++){
@@ -387,6 +360,38 @@ public class Club{
 		return location;
 	}
 
+
+
+	public void placeCoachInOffice(Coach coach){
+		
+		boolean exit=false;
+			
+		for(int j=0; j<MAX_OFFICE_ROWS && !exit;j+=2){
+			for(int k=0; k<MAX_OFFICE_COLS && !exit;k+=2){
+				
+				if(offices[j][k]==null){
+					offices[j][k]=coach;
+					exit=true;
+				}					
+			}
+		}
+	}
+
+	public void removeCoachInOffice(Coach coach){
+		boolean exit=false;
+			
+		for(int j=0; j<MAX_OFFICE_ROWS && !exit;j+=2){
+			for(int k=0; k<MAX_OFFICE_COLS && !exit;k+=2){
+				if(offices[j][k]!=null && offices[j][k]==coach){
+			
+						offices[j][k]=null;
+						exit=true;
+					
+						
+				}
+			}
+		}
+	}
 
 
 
