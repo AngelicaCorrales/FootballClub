@@ -121,6 +121,7 @@ public class Team{
 				objPlayer=players[i];
 			}
 		}
+		//placePlayerInCR(objPlayer);
 		return objPlayer;
 
 	}
@@ -176,6 +177,7 @@ public class Team{
 					exit=true;
 				}
 			}
+			//removePlayerFromCR((Player)objEmployee);
 		}
 
 
@@ -196,34 +198,50 @@ public class Team{
 
 	}
 
-	/*
-	public String placePlayersInChRooms(){
+	
+	public String changingRoomLocations(){
 		String location="";
 		boolean exit;
-		for(int i=0; i<players.length;i++){
-			exit=false;
-			if(players[i]!= null){
-				
-				for(int j=0; j<MAX_CR_ROWS && !exit;j+=2){
-					for(int k=0; k<MAX_CR_COLS && !exit;k+=2){
-						if(offices[j][k]==null){
-							offices[j][k]=(Coach)players[i];
-							exit=true;
-						}
-						else if(offices[j][k]==players[i]){
-							exit=true;
-						}
-					}
-				}
 
-			}
-		}
+		List<Player> playerList = Arrays.asList(players);
 
+		Collections.shuffle(playerList);
+
+		playerList.toArray(players);
 
 		for(int i=0; i<MAX_CR_ROWS; i++){
 			for(int j=0; j<MAX_CR_COLS;j++){
-				if(offices[i][j]!=null){
-					location+=" ["+offices[i][j].getName()+"] ";
+				changingRooms[i][j]=null;
+			}
+		}
+		
+		int l;
+		for(int i=0; i<players.length;i++){
+			if(players[i]!=null){
+				exit=false;	
+				for(int j=0; j<MAX_CR_ROWS&& !exit;j++){
+					if(j%2!=0){
+						l=1;
+					}
+					else{
+						l=0;
+					}
+
+					for(int k=l; k<MAX_CR_COLS && !exit;k+=2){
+							
+							if(changingRooms[j][k]==null){
+								changingRooms[j][k]=players[i];
+								exit=true;
+							}					
+						}
+				}
+			}
+		}
+
+		for(int i=0; i<MAX_CR_ROWS; i++){
+			for(int j=0; j<MAX_CR_COLS;j++){
+				if(changingRooms[i][j]!=null){
+					location+=" ["+changingRooms[i][j].getName()+"] ";
 				}
 				else{
 					location+=" [ X ] ";
@@ -234,6 +252,50 @@ public class Team{
 
 		return location;
 	}
+	/*
+	Integer[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
+
+		List<Integer> intList = Arrays.asList(intArray);
+
+		Collections.shuffle(intList);
+
+		intList.toArray(intArray);
+
+		System.out.println(Arrays.toString(intArray));
+	
+
+
+	public void placePlayerInCR(Player objPlayer){
+		
+		boolean exit=false;
+			
+		for(int j=0; j<MAX_CR_ROWS&& !exit;j+=2){
+			for(int k=0; k<MAX_CR_COLS && !exit;k+=2){
+				
+				if(changingRooms[j][k]==null){
+					changingRooms[j][k]=objPlayer;
+					exit=true;
+				}					
+			}
+		}
+	}
+
+	public void removePlayerFromCR(Player objPlayer){
+		boolean exit=false;
+			
+		for(int j=0; j<MAX_CR_ROWS && !exit;j+=2){
+			for(int k=0; k<MAX_CR_COLS && !exit;k+=2){
+				if(changingRooms[j][k]!=null && changingRooms[j][k]==objPlayer){
+			
+						changingRooms[j][k]=null;
+						exit=true;
+					
+						
+				}
+			}
+		}
+	}
 	*/
+	
 
 }

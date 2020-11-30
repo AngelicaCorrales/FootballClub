@@ -176,7 +176,7 @@ public class Club{
 				teamB.fireEmployee(objEmployee);
 
 				if(objEmployee instanceof Coach){
-					removeCoachInOffice((Coach)objEmployee);
+					removeCoachFromOffice((Coach)objEmployee);
 				}
 				
 				message="El empleado ha sido despedido exitosamente";
@@ -343,7 +343,6 @@ public class Club{
 
 	public String officeLocations(){
 		String location="";
-		boolean exit;
 
 		for(int i=0; i<MAX_OFFICE_ROWS; i++){
 			for(int j=0; j<MAX_OFFICE_COLS;j++){
@@ -377,7 +376,7 @@ public class Club{
 		}
 	}
 
-	public void removeCoachInOffice(Coach coach){
+	public void removeCoachFromOffice(Coach coach){
 		boolean exit=false;
 			
 		for(int j=0; j<MAX_OFFICE_ROWS && !exit;j+=2){
@@ -393,6 +392,8 @@ public class Club{
 		}
 	}
 
-
+	public String jeje(){
+		return teamA.changingRoomLocations();
+	}
 
 }
