@@ -392,8 +392,6 @@ public class Club{
 		}
 	}
 
-	public String jeje(){
-		return teamA.changingRoomLocations();
-	}
+	
 
 }

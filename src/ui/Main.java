@@ -49,7 +49,7 @@ public class Main{
 			updateEmployee();
 			break;
 		case 4:
-			jeje();
+			
 			break;
 		case 5:
 			
@@ -633,8 +633,5 @@ public class Main{
 
 	}
 
-	public void jeje(){
-		System.out.println(club.jeje());
-	}
 
 }

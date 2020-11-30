@@ -121,7 +121,7 @@ public class Team{
 				objPlayer=players[i];
 			}
 		}
-		//placePlayerInCR(objPlayer);
+		
 		return objPlayer;
 
 	}
@@ -177,7 +177,7 @@ public class Team{
 					exit=true;
 				}
 			}
-			//removePlayerFromCR((Player)objEmployee);
+		
 		}
 
 
@@ -252,50 +252,7 @@ public class Team{
 
 		return location;
 	}
-	/*
-	Integer[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
 
-		List<Integer> intList = Arrays.asList(intArray);
-
-		Collections.shuffle(intList);
-
-		intList.toArray(intArray);
-
-		System.out.println(Arrays.toString(intArray));
-	
-
-
-	public void placePlayerInCR(Player objPlayer){
-		
-		boolean exit=false;
-			
-		for(int j=0; j<MAX_CR_ROWS&& !exit;j+=2){
-			for(int k=0; k<MAX_CR_COLS && !exit;k+=2){
-				
-				if(changingRooms[j][k]==null){
-					changingRooms[j][k]=objPlayer;
-					exit=true;
-				}					
-			}
-		}
-	}
-
-	public void removePlayerFromCR(Player objPlayer){
-		boolean exit=false;
-			
-		for(int j=0; j<MAX_CR_ROWS && !exit;j+=2){
-			for(int k=0; k<MAX_CR_COLS && !exit;k+=2){
-				if(changingRooms[j][k]!=null && changingRooms[j][k]==objPlayer){
-			
-						changingRooms[j][k]=null;
-						exit=true;
-					
-						
-				}
-			}
-		}
-	}
-	*/
 	
 
 }
