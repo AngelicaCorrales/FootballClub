@@ -21,6 +21,7 @@ public class Main{
 	}
 
 	public int showMenu(){
+		System.out.println("\n	MENU PRINCIPAL \n");
 		System.out.println("Seleccione una opcion:\n"+
 				"(1) Contratar empleado\n"+
 				"(2) Despedir empleado \n"+
@@ -799,5 +800,6 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 
 	}
+
 
 }

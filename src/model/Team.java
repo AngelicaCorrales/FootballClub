@@ -293,6 +293,34 @@ public class Team{
 		return location;
 	}
 
-	
+	public Lineup findLineup(String dateLineup){
+		Lineup lineup=null;
+		boolean exit=false;
+		for(int i=0; i<lineups.size() && !exit;i++){
+			if(lineups.get(i).getDate().equals(dateLineup)){
+				lineup=lineups.get(i);
+				exit=true;
+			}
+
+		}
+		return lineup;
+	}
+
+	public String addLineup(String dateLineup, String tactic, int defenders, int midfielders, int fordwards){
+		String message="";
+
+		Lineup lineup= findLineup(dateLineup);
+
+		if(lineup==null){
+			lineups.add(new Lineup(dateLineup, tactic));
+			findLineup(dateLineup).formationMatrix(defenders, midfielders, fordwards);
+			message= "   Alineacion agregada";
+		}
+		else{
+			message="   Ya existe una alineacion para esa fecha";
+		}
+		return message;
+	}
+
 
 }

@@ -399,7 +399,8 @@ public class Club{
 	}	
 
 	public String addLineup(char teamX, String dateLineup, String tactic, int defenders, int midfielders, int fordwards){
-		return "";
+		String message=findTeam(teamX).addLineup(dateLineup, tactic, defenders, midfielders, fordwards);
+		return message;
 	}
 
 }
