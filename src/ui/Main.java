@@ -16,7 +16,7 @@ public class Main{
 		do{
 			option=objMain.showMenu();
 			objMain.chosenOption(option);
-		}while(option!=8);
+		}while(option!=9);
 		
 	}
 
@@ -27,10 +27,12 @@ public class Main{
 				"(2) Despedir empleado \n"+
 				"(3) Actualizar informacion de empleado \n"+
 				"(4) Actualizar informacion de equipo\n"+
-				"(7) Mostrar informacion de todo el club\n"+
-				"(5) Mostrar informacion de empleados  \n"+
-				"(6) Mostrar informacion de equipos \n"+
-				"(8) Salir");
+				"() Mostrar informacion de:\n"+
+				"	(5) todo el club\n"+
+				"	(6) equipos \n"+
+				"	() empleados \n"+
+				"	(8) instalaciones \n"+
+				"(9) Salir");
 		int option= sc.nextInt();
 		return option;
 	}
@@ -59,8 +61,12 @@ public class Main{
 		case 7:
 			
 			break;
-				
+
 		case 8:
+			showFacilities();
+			break;
+				
+		case 9:
 			System.out.println("\nHasta la proxima!");
 			break;
 			
@@ -167,8 +173,19 @@ public class Main{
 			case 1:
 				System.out.println("\nIngrese el numero de camiseta");
 				int number=sc.nextInt();
-				sc.nextLine();
+
 				boolean control;
+				double averageRating;
+				do{
+					control=false;
+					System.out.println("\nIngrese la calificacion promedio del jugador (1 a 10)");
+					averageRating=sc.nextDouble();
+					if(averageRating<1 || averageRating>10){
+						control=true;
+					}
+				}while(control);
+
+				sc.nextLine();
 				String position;
 				do{
 					
@@ -201,7 +218,7 @@ public class Main{
 
 				}while(control);
 
-				message=club.hireEmployee(teamX, name, id, salary, number, position);
+				message=club.hireEmployee(teamX, name, id, salary, number, averageRating, position);
 
 				break;
 
@@ -436,8 +453,16 @@ public class Main{
 					break;
 
 				case 4:
-					System.out.println("\nIngrese la nueva calificacion promedio");
-					double averageRating=sc.nextDouble();
+					boolean control;
+					double averageRating;
+					do{
+						control=false;
+						System.out.println("\nIngrese la nueva calificacion promedio (1 a 10)");
+						averageRating=sc.nextDouble();
+						if(averageRating<1 || averageRating>10){
+							control=true;
+						}
+					}while(control);
 					message=club.updateAverageRatingPlayer(id, averageRating)+"\n";
 					break;
 
@@ -801,5 +826,14 @@ public class Main{
 
 	}
 
+
+	public void showFacilities(){
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("MOSTRAR INFORMACION DE INSTALACIONES\n");
+
+		System.out.println(club.showFacilities());
+
+		System.out.println("-----------------------------------------------------------");
+	}
 
 }

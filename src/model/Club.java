@@ -59,12 +59,12 @@ public class Club{
 		return team;
 	}
 
-	public String hireTeamEmployee(Team team, String name, String id, double salary, int number, String position ){
+	public String hireTeamEmployee(Team team, String name, String id, double salary, int number, double averageRating, String position ){
 		//player
 		String message="";
 		if(team.canHirePlayer()){
 			if(team.numberPlayerAvailable(number)){
-				employees.add(team.hirePlayer(name, id, salary, number, position));
+				employees.add(team.hirePlayer(name, id, salary, number, averageRating, position));
 				message="Nuevo jugador contratado exitosamente.";
 			}
 			else{
@@ -78,14 +78,14 @@ public class Club{
 		return message;
 	}
 
-	public String hireEmployee(char team, String name, String id, double salary, int number, String position){
+	public String hireEmployee(char team, String name, String id, double salary, int number, double averageRating, String position){
 		//player
 		String message="";
 		Employee objEmployee=findEmployee(id);
 		boolean hire;
 		if(objEmployee==null){
 			
-			message=hireTeamEmployee( findTeam(team),  name,  id,  salary,  number,  position);
+			message=hireTeamEmployee( findTeam(team),  name,  id,  salary,  number, averageRating,  position);
 		
 		}
 		else{
@@ -342,7 +342,7 @@ public class Club{
 
 
 	public String officeLocations(){
-		String location="";
+		String location="	***OFICINAS***\n";
 
 		for(int i=0; i<MAX_OFFICE_ROWS; i++){
 			for(int j=0; j<MAX_OFFICE_COLS;j++){
@@ -401,6 +401,14 @@ public class Club{
 	public String addLineup(char teamX, String dateLineup, String tactic, int defenders, int midfielders, int fordwards){
 		String message=findTeam(teamX).addLineup(dateLineup, tactic, defenders, midfielders, fordwards);
 		return message;
+	}
+
+	public String showFacilities(){
+		return officeLocations()+
+				"\n	***CAMERINOS***\n"+
+				"\n      Equipo A:\n"+teamA.changingRoomLocations()+
+				"\n \n      Equipo B:\n"+teamB.changingRoomLocations();
+
 	}
 
 }
