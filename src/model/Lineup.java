@@ -95,6 +95,33 @@ public class Lineup{
 		return message;
 	}
 
+
+
+	public String formationForMedia(){
+		String message="";
+		int defenders=0;
+		int midfielders=0;
+		int fordwards=0;
+		for(int i=MAX_FORMATION_ROWS-2; i>0; i--){
+			for(int j=1; j<MAX_FORMATION_COLS-1;j++){
+				if(i==MAX_FORMATION_ROWS-2 || i== MAX_FORMATION_ROWS-3){
+					defenders+=formation[i][j];
+				}
+
+				if(i==MAX_FORMATION_ROWS-5 || i== MAX_FORMATION_ROWS-6){
+					midfielders+=formation[i][j];
+				}
+
+				if(i==MAX_FORMATION_ROWS-8 || i== MAX_FORMATION_ROWS-9){
+					fordwards+=formation[i][j];
+				}
+			
+			}
+		}
+		message=defenders+"-"+midfielders+"-"+fordwards;
+		return message;
+	}
+
 	
 
 }
