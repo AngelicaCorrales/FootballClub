@@ -425,4 +425,18 @@ public class Club{
 		return message;
 	}
 
+
+	public String showEmployee(String id){
+		String message="";
+		Employee objEmployee= findEmployee(id);
+		if(objEmployee!=null && objEmployee.getActiveStatus()){
+			message="\n"+objEmployee.toString();
+		}
+		else{
+			message="   El identificador no corresponde a un empleado del club";
+		}
+
+		return message;
+	}
+
 }

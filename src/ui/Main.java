@@ -855,7 +855,10 @@ public class Main{
 				break;
 
 			case 2: 
-
+				sc.nextLine();
+				System.out.println("\nIngrese el identificador del empleado");
+				String id=sc.nextLine();
+				message=club.showEmployee(id);
 				break;
 
 		}
