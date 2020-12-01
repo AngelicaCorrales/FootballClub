@@ -76,7 +76,7 @@ public class Player extends Employee implements Price, Level{
 		return level;
 	}
 	
-
+	@Override
 	public String toString(){
 		return super.toString()+"*Numero de camiseta: "+number+"\n"+
 								"*Cantidad de goles que ha marcado en el club: "+goals+"\n"+

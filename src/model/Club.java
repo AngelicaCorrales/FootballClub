@@ -411,4 +411,18 @@ public class Club{
 
 	}
 
+	public String showAllEmployees(){
+		String message="";
+		for(int i=0; i<employees.size();i++){
+			if(employees.get(i).getActiveStatus()){
+				message+="\n"+employees.get(i).toString()+"\n";
+			}
+		}
+		if(employees.isEmpty()){
+			message=" 	No se han contratado empleados aun.";
+		}
+
+		return message;
+	}
+
 }

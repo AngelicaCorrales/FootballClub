@@ -57,6 +57,7 @@ public class HeadCoach extends Coach implements Price, Level{
 		return chString;
 	}
 
+	@Override
 	public String toString(){
 		return super.toString()+"*Numero de equipos a cargo en su carrera como manager: "+numberTeams+"\n"+
 								"*Campeonatos conseguidos: "+championshipsToString()+"\n"+

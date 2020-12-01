@@ -28,10 +28,10 @@ public class Main{
 				"(3) Actualizar informacion de empleado \n"+
 				"(4) Actualizar informacion de equipo\n"+
 				"() Mostrar informacion de:\n"+
-				"	(5) todo el club\n"+
-				"	(6) equipos \n"+
-				"	() empleados \n"+
-				"	(8) instalaciones \n"+
+				"   (5) todo el club\n"+
+				"   (6) equipos \n"+
+				"   (7) empleados \n"+
+				"   (8) instalaciones \n"+
 				"(9) Salir");
 		int option= sc.nextInt();
 		return option;
@@ -59,7 +59,7 @@ public class Main{
 			
 			break;
 		case 7:
-			
+			showEmployees();
 			break;
 
 		case 8:
@@ -832,6 +832,35 @@ public class Main{
 		System.out.println("MOSTRAR INFORMACION DE INSTALACIONES\n");
 
 		System.out.println(club.showFacilities());
+
+		System.out.println("-----------------------------------------------------------");
+	}
+
+	public void showEmployees(){
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("MOSTRAR INFORMACION DE EMPLEADOS\n");
+		int opt;
+		String message="";
+		do{
+			System.out.println("Seleccione una opcion\n"+
+							"(1) Todos los empleados \n"+
+							"(2) Un empleado partidular");
+
+			opt=sc.nextInt();
+		}while(opt!=1 && opt!=2);
+
+		switch(opt){
+			case 1:
+				message=club.showAllEmployees();
+				break;
+
+			case 2: 
+
+				break;
+
+		}
+
+		System.out.println(message);
 
 		System.out.println("-----------------------------------------------------------");
 	}

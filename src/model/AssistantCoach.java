@@ -68,6 +68,7 @@ public class AssistantCoach extends Coach{
 		return message;
 	}
 
+	@Override
 	public String toString(){
 		return super.toString()+ "*Fue jugador: "+wasPlayerToString()+"\n"+
 								"*Experticia(s): "+skillsToString()+"\n";
