@@ -13,8 +13,20 @@ public class HeadCoach extends Coach implements Price, Level{
 		
 	}
 
+	public int getNumberTeams(){
+		return numberTeams;
+	}
+
 	public void setNumberTeams(int numberTeams){
 		this.numberTeams=numberTeams;
+	}
+
+	public ArrayList<String> getChampionships(){
+		return championships;
+	}
+
+	public void setChampionships(ArrayList<String> championships){
+		this.championships=championships;
 	}
 
 	public String addChampionship(String championship){

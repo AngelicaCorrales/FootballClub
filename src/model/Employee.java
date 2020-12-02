@@ -20,16 +20,16 @@ public abstract class Employee{
 		return name;
 	}
 
-	public boolean getActiveStatus(){
-		return activeStatus;
-	}
-
-	public void setActiveStatus(boolean activeStatus){
-		this.activeStatus=activeStatus;
+	public void setName(String name){
+		this.name=name;
 	}
 
 	public String getId(){
 		return id;
+	}
+
+	public void setId(String id){
+		this.id=id;
 	}
 
 	public double getSalary(){
@@ -39,6 +39,15 @@ public abstract class Employee{
 	public void setSalary(double salary){
 		this.salary=salary;
 	}
+
+	public boolean getActiveStatus(){
+		return activeStatus;
+	}
+
+	public void setActiveStatus(boolean activeStatus){
+		this.activeStatus=activeStatus;
+	}
+
 
 	public String statusToString(){
 		String status="";

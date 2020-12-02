@@ -30,6 +30,66 @@ public class Club{
 
 	}
 
+	public String getName(){
+		return name;
+	}
+
+	public void setName(String name){
+		this.name=name;
+	}
+
+
+	public String getNIT(){
+		return nit;
+	}
+
+	public void setNIT(String nit){
+		this.nit=nit;
+	}	
+
+
+	public String getFoundationDate(){
+		return foundationDate;
+	}
+
+	public void setFoundationDate(String foundationDate){
+		this.foundationDate=foundationDate;
+	}	
+
+
+	public Team getTeamA(){
+		return teamA;
+	}
+
+	public void setTeamA(Team teamA){
+		this.teamA=teamA;
+	}
+
+
+	public Team getTeamB(){
+		return teamB;
+	}
+
+	public void setTeamB(Team teamB){
+		this.teamB=teamB;
+	}
+
+	public ArrayList<Employee> getEmployees(){
+		return employees;
+	}
+
+	public void setEmployees(ArrayList<Employee> employees){
+		this.employees=employees;
+	}
+
+	public Coach[][] getOffices(){
+		return offices;
+	}
+
+	public void setOffices(Coach[][] offices){
+		this.offices=offices;
+	}
+
 	public int getMAX_SKILLS(){
 		return AssistantCoach.MAX_SKILLS;
 	}

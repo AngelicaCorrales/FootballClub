@@ -16,6 +16,10 @@ public class Team{
 	//attributes
 	private char team;
 	private String name;
+	private int MAX_CR_ROWS;
+	private int MAX_CR_COLS;
+
+	//relationships
 	private Player[] players;
 	private Player[][] changingRooms;
 
@@ -24,8 +28,7 @@ public class Team{
 
 	private ArrayList<Lineup> lineups;
 
-	private int MAX_CR_ROWS;
-	private int MAX_CR_COLS;
+	
 
 	public Team(char team, String name){
 		this.team=team;
@@ -53,12 +56,56 @@ public class Team{
 		return team;
 	}
 
+	public void setTeam(char team){
+		this.team=team;
+	}
+
 	public String getName(){
 		return name;
 	}
 
 	public void setName(String name){
 		this.name=name;
+	}
+
+	public Player[] getPlayers(){
+		return players;
+	}
+
+	public void setPlayers(Player[] players){
+		this.players=players;
+	}
+
+	public AssistantCoach[] getAssistantCoaches(){
+		return assistantCoaches;
+	}
+
+	public void setAssistantCoaches(AssistantCoach[] assistantCoaches){
+		this.assistantCoaches=assistantCoaches;
+	}
+
+	public HeadCoach getHeadCoach(){
+		return headCoach;
+	}
+
+	public void setHeadCoach(HeadCoach headCoach){
+		this.headCoach=headCoach;
+	}
+
+	public Player[][] getChangingRooms(){
+		return changingRooms;
+	}
+
+	public void setChangingRooms(Player[][] changingRooms){
+		this.changingRooms=changingRooms;
+	}
+
+	public ArrayList<Lineup> getLineups(){
+		return lineups;
+	}
+
+	public void setLineups(ArrayList<Lineup> lineups){
+		this.lineups=lineups;
 	}
 
 	public Employee findEmployee(Employee objEmployee){

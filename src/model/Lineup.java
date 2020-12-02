@@ -8,6 +8,8 @@ public class Lineup{
 	//attributes
 	private String date;
 	private int[][] formation;
+
+	//relationship
 	private Tactic tactic;
 
 	public Lineup(String date, String tactic){
@@ -18,6 +20,26 @@ public class Lineup{
 
 	public String getDate(){
 		return date;
+	}
+
+	public void setDate(String date){
+		this.date=date;
+	}
+
+	public int[][] getFormation(){
+		return formation;
+	}
+
+	public void setFormation(int[][] formation){
+		this.formation=formation;
+	}
+
+	public Tactic getTactic(){
+		return tactic;
+	}
+
+	public void setTactic(Tactic tactic){
+		this.tactic=tactic;
 	}
 
 	public void formationMatrix(int defenders, int midfielders, int fordwards){

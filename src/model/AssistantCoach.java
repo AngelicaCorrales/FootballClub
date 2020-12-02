@@ -2,6 +2,7 @@ package model;
 public class AssistantCoach extends Coach{
 	//constant
 	public final static int MAX_SKILLS=6;
+
 	//attributes
 	private boolean wasPlayer;
 	private Skill[] skills;
@@ -18,8 +19,20 @@ public class AssistantCoach extends Coach{
 		
 	}
 
+	public boolean getWasPlayer(){
+		return wasPlayer;
+	}
+
 	public void setWasPlayer(boolean wasPlayer){
-		this.wasPlayer=true;
+		this.wasPlayer=wasPlayer;
+	}
+
+	public Skill[] getSkills(){
+		return skills;
+	}
+
+	public void setSkills(Skill[] skills){
+		this.skills=skills;
 	}
 
 	public String wasPlayerToString(){
