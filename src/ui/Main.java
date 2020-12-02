@@ -295,10 +295,10 @@ public class Main{
 					for(int i=0; i<skills.length && !exit;i++){
 
 						do{
-							System.out.println("\nIngrese la experticia del nuevo empleado (ofensivo, defensivo, posesion, jugadas de laboratorio, otra1, otra2)");
+							System.out.println("\nIngrese la experticia del nuevo empleado (ofensivo, defensivo, posesion, jugadas de laboratorio, psicologo, fisioterapeuta)");
 							skills[i]=sc.nextLine().toUpperCase();
 
-							if(skills[i].equals("OFENSIVO") || skills[i].equals("DEFENSIVO") || skills[i].equals("POSESION")|| skills[i].equals("JUGADAS DE LABORATORIO") || skills[i].equals("OTRA1") || skills[i].equals("OTRA2")){
+							if(skills[i].equals("OFENSIVO") || skills[i].equals("DEFENSIVO") || skills[i].equals("POSESION")|| skills[i].equals("JUGADAS DE LABORATORIO") || skills[i].equals("PSICOLOGO") || skills[i].equals("FISIOTERAPEUTA")){
 								if(skills[i].equals("OFENSIVO")){
 									skills[i]="OFFENSIVE";
 								}
@@ -315,12 +315,12 @@ public class Main{
 									skills[i]="LABORATORY_PLAYS";
 								}
 
-								if(skills[i].equals("OTRA1")){
-									skills[i]="OTRA1";
+								if(skills[i].equals("PSICOLOGO")){
+									skills[i]="PSYCHOLOGIST";
 								}
 
-								if(skills[i].equals("OTRA2")){
-									skills[i]="OTRA2";
+								if(skills[i].equals("FISIOTERAPEUTA")){
+									skills[i]="PHYSIOTHERAPIST";
 								}
 								control=false;
 								counter++;
