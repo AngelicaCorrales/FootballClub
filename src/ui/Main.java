@@ -80,11 +80,17 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("	FOOTBALL CLUB \n");
 
-		System.out.println("Ingrese el nombre del club");
-		String name=sc.nextLine();
+		String name;
+		do{
+			System.out.println("Ingrese el nombre del club");
+			name=sc.nextLine();
+		}while(name.equals(""));
 
-		System.out.println("\nIngrese el NIT que identifica el club");
-		String nit=sc.nextLine();
+		String nit;
+		do{
+			System.out.println("\nIngrese el NIT que identifica el club");
+			nit=sc.nextLine();
+		}while(nit.equals(""));
 
 		int day,month, year;
 		System.out.println("\nFECHA DE FUNDACION (primero el dia, luego mes, por ultimo anio");
@@ -117,11 +123,18 @@ public class Main{
 		String foundationDate=day+"/"+month+"/"+year;
 
 		sc.nextLine();
-		System.out.println("\nIngrese el nombre del equipo A del club");
-		String teamNameA=sc.nextLine();
 
-		System.out.println("\nIngrese el nombre del equipo B del club");
-		String teamNameB=sc.nextLine();
+		String teamNameA;
+		do{
+			System.out.println("\nIngrese el nombre del equipo A del club");
+			teamNameA=sc.nextLine();
+		}while(teamNameA.equals(""));
+
+		String teamNameB;
+		do{
+			System.out.println("\nIngrese el nombre del equipo B del club");
+			teamNameB=sc.nextLine();
+		}while(teamNameB.equals(""));
 
 		
 		club= new Club(name, nit, foundationDate, teamNameA, teamNameB);
@@ -159,20 +172,31 @@ public class Main{
 		}while(error);
 		char teamX=team.charAt(0);
 
+		String name;
+		do{
+			System.out.println("\nIngrese el nombre del nuevo empleado");
+			name=sc.nextLine();
+		}while(name.equals(""));
 
-		System.out.println("\nIngrese el nombre del nuevo empleado");
-		String name=sc.nextLine();
+		String id;
+		do{
+			System.out.println("\nIngrese el identificador del nuevo empleado");
+			id=sc.nextLine();
+		}while(id.equals(""));
 
-		System.out.println("\nIngrese el identificador del nuevo empleado");
-		String id=sc.nextLine();
-
-		System.out.println("\nIngrese el salario del nuevo empleado");
-		double salary=sc.nextDouble();
+		double salary;
+		do{
+			System.out.println("\nIngrese el salario del nuevo empleado");
+			salary=sc.nextDouble();
+		}while(salary<0);
 
 		switch(option){
 			case 1:
-				System.out.println("\nIngrese el numero de camiseta");
-				int number=sc.nextInt();
+				int number;
+				do{
+					System.out.println("\nIngrese el numero de camiseta");
+					number=sc.nextInt();
+				}while(number<1 || number>99);
 
 				boolean control;
 				double averageRating;
@@ -225,12 +249,19 @@ public class Main{
 			case 2:
 			case 3:
 				boolean exit=false;
-				System.out.println("\nIngrese los anios de experiencia del nuevo empleado");
-				int yearsExperience=sc.nextInt();
+				int yearsExperience;
+				do{
+					System.out.println("\nIngrese los anios de experiencia del nuevo empleado");
+					yearsExperience=sc.nextInt();
+				}while(yearsExperience<0 || yearsExperience>80);
+
 				sc.nextLine();
 				if(option==2){
-					System.out.println("\nIngrese el numero de equipos a cargo en la carrera como manager del nuevo empleado");
-					int numberTeams=sc.nextInt();
+					int numberTeams;
+					do{
+						System.out.println("\nIngrese el numero de equipos a cargo en la carrera como manager del nuevo empleado");
+						numberTeams=sc.nextInt();
+					}while(numberTeams<0);
 					sc.nextLine();
 
 
@@ -243,11 +274,15 @@ public class Main{
 
 						if(optionch==1){
 							sc.nextLine();
-							System.out.println("\nIngrese el nombre de un campeonato conseguido del nuevo empleado");
-							championshipName=sc.nextLine();
+							do{
+								System.out.println("\nIngrese el nombre de un campeonato conseguido del nuevo empleado");
+								championshipName=sc.nextLine();
+							}while(championshipName.equals(""));
 
-							System.out.println("\nIngrese el anio del campeonato anterior");
-							championshipYear=sc.nextLine();
+							do{
+								System.out.println("\nIngrese el anio del campeonato anterior");
+								championshipYear=sc.nextLine();
+							}while(championshipYear.equals(""));
 
 							championship= championshipName+" ("+championshipYear+")";
 							championships.add(championship);
@@ -377,8 +412,11 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("DESPEDIR EMPLEADO \n");
 
-		System.out.println("Ingrese el identificador del empleado a despedir");
-		String id=sc.nextLine();
+		String id;
+		do{
+			System.out.println("Ingrese el identificador del empleado a despedir");
+			id=sc.nextLine();
+		}while(id.equals(""));
 		message=club.fireEmployee(id);
 
 		System.out.println("-----------------------------------------------------------");
@@ -391,9 +429,12 @@ public class Main{
 		sc.nextLine();
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("ACTUALIZAR INFORMACION DE EMPLEADO \n");
+		String id;
+		do{
+			System.out.println("Ingrese el identificador del empleado a actualizar");
+			id=sc.nextLine();
+		}while(id.equals(""));
 
-		System.out.println("Ingrese el identificador del empleado a actualizar");
-		String id=sc.nextLine();
 		if(club.searchEmployee(id)==0){
 			message="  Error. El identificador del empleado no se encuentra vinculado al club";
 			System.out.println(message);
@@ -435,39 +476,45 @@ public class Main{
 
 			switch(opt){
 				case 1:
-					System.out.println("\nIngrese el nuevo salario");
-					double salary=sc.nextDouble();
+					double salary;
+					do{
+						System.out.println("\nIngrese el nuevo salario");
+						salary=sc.nextDouble();
+					}while(salary<0);
 					message=club.updateSalary(id, salary)+"\n";
 					break;
 
 				case 2:
-					System.out.println("\nIngrese el nuevo numero de camiseta");
-					int number=sc.nextInt();
+					int number;
+					do{
+						System.out.println("\nIngrese el nuevo numero de camiseta");
+						number=sc.nextInt();
+					}while(number<1 || number>99);
 					message=club.updateNumberPlayer(id, number)+"\n";
 					break;
 
 				case 3:
-					System.out.println("\nIngrese la nueva cantidad de goles que ha marcado en el club");
-					int goals=sc.nextInt();
+					int goals;
+					do{
+						System.out.println("\nIngrese la nueva cantidad de goles que ha marcado en el club");
+						goals=sc.nextInt();
+					}while(goals<0);
 					message=club.updateGoalsPlayer(id, goals)+"\n";
 					break;
 
 				case 4:
-					boolean control;
 					double averageRating;
 					do{
-						control=false;
 						System.out.println("\nIngrese la nueva calificacion promedio (1 a 10)");
 						averageRating=sc.nextDouble();
-						if(averageRating<1 || averageRating>10){
-							control=true;
-						}
-					}while(control);
+						
+					}while(averageRating<1 || averageRating>10);
 					message=club.updateAverageRatingPlayer(id, averageRating)+"\n";
 					break;
 
 				case 5:
-					System.out.println("\nIngrese la nueva posicion dentro del terreno de juego");
+					sc.nextLine();
+					System.out.println("\nIngrese la nueva posicion dentro del terreno de juego (portero, defensor, volante o delantero)");
 					String position=sc.nextLine().toUpperCase();
 
 					if(position.equals("PORTERO") || position.equals("DEFENSOR") || position.equals("VOLANTE") || position.equals("DELANTERO")){
@@ -525,20 +572,29 @@ public class Main{
 
 			switch(opt){
 				case 1:
-					System.out.println("\nIngrese el nuevo salario");
-					double salary=sc.nextDouble();
+					double salary;
+					do{
+						System.out.println("\nIngrese el nuevo salario");
+						salary=sc.nextDouble();
+					}while(salary<0);
 					message=club.updateSalary(id, salary)+"\n";
 					break;
 
 				case 2:
-					System.out.println("\nIngrese los anios de experiencia actualizados");
-					int yearsExperience=sc.nextInt();
+					int yearsExperience;
+					do{
+						System.out.println("\nIngrese los anios de experiencia actualizados");
+						yearsExperience=sc.nextInt();
+					}while(yearsExperience<0 || yearsExperience>80);
 					message=club.updateYearsExperience(id, yearsExperience)+"\n";
 					break;
 
 				case 3:
-					System.out.println("\nIngrese el numero de equipos a cargo en la carrera como manager actualizados");
-					int numberTeams=sc.nextInt();
+					int numberTeams;
+					do{
+						System.out.println("\nIngrese el numero de equipos a cargo en la carrera como manager actualizados");
+						numberTeams=sc.nextInt();
+					}while(numberTeams<0);
 					message=club.updateNumberTeams(id, numberTeams)+"\n";
 					break;
 
@@ -547,11 +603,16 @@ public class Main{
 					String championshipName, championshipYear, championship;
 
 					sc.nextLine();
-					System.out.println("\nIngrese el nombre del campeonato conseguido");
-					championshipName=sc.nextLine();
+					do{
+						System.out.println("\nIngrese el nombre del campeonato conseguido");
+						championshipName=sc.nextLine();
+					}while(championshipName.equals(""));
 
-					System.out.println("\nIngrese el anio del campeonato");
-					championshipYear=sc.nextLine();
+					do{
+						System.out.println("\nIngrese el anio del campeonato");
+						championshipYear=sc.nextLine();
+					}while(championshipYear.equals(""));
+
 
 					championship= championshipName+" ("+championshipYear+")";
 
@@ -587,14 +648,20 @@ public class Main{
 
 			switch(opt){
 				case 1:
-					System.out.println("\nIngrese el nuevo salario");
-					double salary=sc.nextDouble();
+					double salary;
+					do{
+						System.out.println("\nIngrese el nuevo salario");
+						salary=sc.nextDouble();
+					}while(salary<0);
 					message=club.updateSalary(id, salary)+"\n";
 					break;
 
 				case 2:
-					System.out.println("\nIngrese los anios de experiencia actualizados");
-					int yearsExperience=sc.nextInt();
+					int yearsExperience;
+					do{
+						System.out.println("\nIngrese los anios de experiencia actualizados");
+						yearsExperience=sc.nextInt();
+					}while(yearsExperience<0 || yearsExperience>80);
 					message=club.updateYearsExperience(id, yearsExperience)+"\n";
 					break;
 
@@ -688,8 +755,11 @@ public class Main{
 			switch(opt){
 				case 1:
 					sc.nextLine();
-					System.out.println("\nIngrese el nuevo nombre del equipo");
-					String teamName=sc.nextLine();
+					String teamName;
+					do{
+						System.out.println("\nIngrese el nuevo nombre del equipo");
+						teamName=sc.nextLine();
+					}while(teamName.equals(""));
 					message=club.updateTeamName(teamX, teamName);
 					break;
 
@@ -856,8 +926,11 @@ public class Main{
 
 			case 2: 
 				sc.nextLine();
-				System.out.println("\nIngrese el identificador del empleado");
-				String id=sc.nextLine();
+				String id;
+				do{
+					System.out.println("\nIngrese el identificador del empleado");
+					id=sc.nextLine();
+				}while(id.equals(""));
 				message=club.showEmployee(id);
 				break;
 
@@ -889,17 +962,13 @@ public class Main{
 
 			case 2:
 				String team;
-				boolean error;
 				sc.nextLine();
 				do{
-					error= false;
+					
 					System.out.println("\nIngrese el equipo (A o B)");
 					team=sc.nextLine().toUpperCase();
-					if(!team.equals("A") && !team.equals("B")){
-						error=true;
-					}
-
-				}while(error);
+					
+				}while(!team.equals("A") && !team.equals("B"));
 				char teamX=team.charAt(0);
 				message=club.showTeam(teamX);
 				break;
