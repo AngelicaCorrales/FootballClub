@@ -447,4 +447,13 @@ public class Club{
 	public String showTeam(char teamX){
 		return "\n"+findTeam(teamX).toString()+"\n";
 	}
+
+	public String showClub(){
+		return "         ****CLUB****\n \n"+
+				"**Nombre del club: "+name+"\n"+
+				"**NIT: "+nit+"\n"+
+				"**Fecha de fundacion: "+foundationDate+"\n"+
+				showAllTeams()+"\n"+
+				officeLocations()+"\n";
+	}
 }

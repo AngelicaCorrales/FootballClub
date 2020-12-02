@@ -53,7 +53,7 @@ public class Main{
 			updateTeam();
 			break;
 		case 5:
-			
+			showClub();
 			break;
 		case 6:
 			showTeams();
@@ -909,6 +909,13 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
+	public void showClub(){
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("MOSTRAR INFORMACION DE TODO EL CLUB\n");
 
+		System.out.println(club.showClub());
+
+		System.out.println("-----------------------------------------------------------");
+	}
 
 }
