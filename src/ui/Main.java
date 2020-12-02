@@ -27,11 +27,11 @@ public class Main{
 				"(2) Despedir empleado \n"+
 				"(3) Actualizar informacion de empleado \n"+
 				"(4) Actualizar informacion de equipo\n"+
-				"() Mostrar informacion de:\n"+
-				"   (5) todo el club\n"+
-				"   (6) equipos \n"+
-				"   (7) empleados \n"+
-				"   (8) instalaciones \n"+
+				"    Mostrar informacion de:\n"+
+				"(5) todo el club\n"+
+				"(6) equipos \n"+
+				"(7) empleados \n"+
+				"(8) instalaciones \n"+
 				"(9) Salir");
 		int option= sc.nextInt();
 		return option;
@@ -56,7 +56,7 @@ public class Main{
 			
 			break;
 		case 6:
-			
+			showTeams();
 			break;
 		case 7:
 			showEmployees();
@@ -844,7 +844,7 @@ public class Main{
 		do{
 			System.out.println("Seleccione una opcion\n"+
 							"(1) Todos los empleados \n"+
-							"(2) Un empleado partidular");
+							"(2) Un empleado particular");
 
 			opt=sc.nextInt();
 		}while(opt!=1 && opt!=2);
@@ -865,6 +865,34 @@ public class Main{
 
 		System.out.println(message);
 
+		System.out.println("-----------------------------------------------------------");
+	}
+
+
+	public void showTeams(){
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("MOSTRAR INFORMACION DE EQUIPOS\n");
+		int opt;
+		String message="";
+		do{
+			System.out.println("Seleccione una opcion\n"+
+							"(1) Ambos los equipos \n"+
+							"(2) Un equipo particular");
+
+			opt=sc.nextInt();
+		}while(opt!=1 && opt!=2);
+
+		switch(opt){
+			case 1:
+				message=club.showAllTeams();
+				break;
+
+			case 2:
+
+				break;
+		}
+
+		System.out.println(message);
 		System.out.println("-----------------------------------------------------------");
 	}
 

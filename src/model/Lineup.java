@@ -122,6 +122,13 @@ public class Lineup{
 		return message;
 	}
 
+	public String toString(){
+		return "**ALINEACION**\n"+
+				"*Fecha: "+date+"\n"+
+				"*Formacion: "+formationForMedia()+"\n"+
+				"*Tactica: "+tactic.name()+"\n";
+	}
+
 	
 
 }

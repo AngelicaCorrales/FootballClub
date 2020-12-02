@@ -439,4 +439,9 @@ public class Club{
 		return message;
 	}
 
+	public String showAllTeams(){
+		return "\n"+teamA.toString()+
+				"\n \n \n"+teamB.toString()+"\n";
+	}
+
 }

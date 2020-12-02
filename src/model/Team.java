@@ -322,6 +322,72 @@ public class Team{
 		return message;
 	}
 
+	public String employeesToString(){
+		String employees="";
+		String asCoaches="";
+		String playersString="";
 
+		employees+="   **Entrenador principal: ";
+		if(headCoach!=null){
+			employees+="\n \n"+headCoach.toString();
+		}
+		else{
+			employees+="-";
+		}
+
+		for(int i=0; i<assistantCoaches.length;i++){
+			if(assistantCoaches[i]!=null){
+				asCoaches+=assistantCoaches[i].toString()+"\n";
+			}
+		}
+		if(asCoaches.equals("")){
+			asCoaches="-";
+		}
+		else{
+			asCoaches="\n \n"+asCoaches;
+		}
+
+		employees+="\n   **Entrenador(es) asistente(s): "+asCoaches;
+
+		for(int i=0; i<players.length;i++){
+			if(players[i]!=null){
+				playersString+=players[i].toString()+"\n";
+			}
+		}
+
+		if(playersString.equals("")){
+			playersString="-";
+		}
+		else{
+			playersString="\n \n"+playersString;
+		}
+
+		employees+="\n   **Jugador(es): "+playersString;
+
+		return employees;
+	}
+
+	public String lineupsToString(){
+		String lineupsString="";
+		for(int i=0; i<lineups.size();i++){
+			lineupsString+=lineups.get(i).toString()+"\n";
+		}
+
+		if(lineups.isEmpty()){
+			lineupsString="      No se han agregado alineaciones. ";
+		}
+		return lineupsString;
+	}
+
+	public String toString(){
+		return "               *****EQUIPO*****\n"+
+				"   **Equipo: "+team+"\n"+
+				"   **Nombre: "+name+"\n"+
+				"\n"+employeesToString()+"\n"+
+				"   **Camerinos: \n"+changingRoomLocations()+"\n"+
+				"   **Alineacion(es): \n"+lineupsToString()+"\n";
+
+				
+	}
 
 }
