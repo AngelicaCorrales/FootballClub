@@ -888,12 +888,27 @@ public class Main{
 				break;
 
 			case 2:
+				String team;
+				boolean error;
+				sc.nextLine();
+				do{
+					error= false;
+					System.out.println("\nIngrese el equipo (A o B)");
+					team=sc.nextLine().toUpperCase();
+					if(!team.equals("A") && !team.equals("B")){
+						error=true;
+					}
 
+				}while(error);
+				char teamX=team.charAt(0);
+				message=club.showTeam(teamX);
 				break;
 		}
 
 		System.out.println(message);
 		System.out.println("-----------------------------------------------------------");
 	}
+
+
 
 }

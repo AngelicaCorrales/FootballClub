@@ -444,4 +444,7 @@ public class Club{
 				"\n \n \n"+teamB.toString()+"\n";
 	}
 
+	public String showTeam(char teamX){
+		return "\n"+findTeam(teamX).toString()+"\n";
+	}
 }
