@@ -5,10 +5,16 @@ public class Main{
 	private Club club;
 	private Scanner sc;
 
+	/**
+	*<b>name:</b> Main <br>
+	*This is the constructor of the class <br>
+	*<b>post:</b> the relationships of the class have been initialized <br>
+	*/
 	public Main(){
 		sc= new Scanner(System.in);
 		createClub();
 	}
+
 
 	public static void main(String [] args){
 		Main objMain= new Main();
@@ -20,6 +26,12 @@ public class Main{
 		
 	}
 
+	/**
+	*<b>name:</b> showMenu <br>
+	*This method shows the menu with the options that the user can choose <br>
+	*<b>post:</b> the menu has been shown and the option chosen<br>
+	*@return an <code>integer</code>  specifying option, the option chosen
+	*/
 	public int showMenu(){
 		System.out.println("\n	MENU PRINCIPAL \n");
 		System.out.println("Seleccione una opcion:\n"+
@@ -37,6 +49,12 @@ public class Main{
 		return option;
 	}
 
+	/**
+	*<b>name:</b> chosenOption <br>
+	*This method does an action depending on the option chosen<br>
+	*<b>post:</b> the action has been done<br>
+	*@param op Is the option chosen.<br>
+	*/
 	public void chosenOption(int op) {
 		
 		switch(op) {
@@ -76,6 +94,11 @@ public class Main{
 		}
 	}
 
+	/**
+	*<b>name:</b> createClub <br>
+	*This method initializes a Club object<br>
+	*<b>post:</b> the Club object has been initialized <br>
+	*/
 	public void createClub(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("	FOOTBALL CLUB \n");
@@ -141,6 +164,11 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
+	/**
+	*<b>name:</b> hireEmployee <br>
+	*This method hires an employee<br>
+	*<b>post:</b> the employee has been hired<br>
+	*/
 	public void hireEmployee(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("CONTRATAR EMPLEADO \n");
@@ -405,7 +433,11 @@ public class Main{
 
 
 
-
+	/**
+	*<b>name:</b> fireEmployee <br>
+	*This method fires an employee<br>
+	*<b>post:</b> the employee has been fired<br>
+	*/
 	public void fireEmployee(){
 		String message="";
 		sc.nextLine();
@@ -424,6 +456,12 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
+
+	/**
+	*<b>name:</b> updateEmployee <br>
+	*This method updates an employee's information<br>
+	*<b>post:</b> the employee' information has been updated<br>
+	*/
 	public void updateEmployee(){
 		String message="";
 		sc.nextLine();
@@ -461,6 +499,12 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
+	/**
+	*<b>name:</b> updatePlayer <br>
+	*This method updates a player's information<br>
+	*<b>post:</b> the player's information has been updated<br>
+	*@param id Is the identifier of the player. id!=null <br>
+	*/
 	public void updatePlayer(String id){
 		int opt;
 		String message="";
@@ -558,6 +602,12 @@ public class Main{
 
 	}
 
+	/**
+	*<b>name:</b> updateHeadCoach <br>
+	*This method updates a head coach's information<br>
+	*<b>post:</b> the head coach's information has been updated<br>
+	*@param id Is the identifier of the player. id!=null <br>
+	*/
 	public void updateHeadCoach(String id){
 		int opt;
 		String message="";
@@ -634,6 +684,12 @@ public class Main{
 		}while(opt!=5);
 	}
 
+	/**
+	*<b>name:</b> updateAssistantCoach <br>
+	*This method updates a assistant coach's information<br>
+	*<b>post:</b> the assistant coach's information has been updated<br>
+	*@param id Is the identifier of the player. id!=null <br>
+	*/
 	public void updateAssistantCoach(String id){
 		int opt;
 		String message="";
@@ -724,6 +780,11 @@ public class Main{
 
 	}
 
+	/**
+	*<b>name:</b> updateTeam <br>
+	*This method updates a team's information<br>
+	*<b>post:</b> the team's information has been updated<br>
+	*/
 	public void updateTeam(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("ACTUALIZAR INFORMACION DE EQUIPO\n");
@@ -896,7 +957,11 @@ public class Main{
 
 	}
 
-
+	/**
+	*<b>name:</b> showFacilities <br>
+	*This method shows the club's facilities<br>
+	*<b>post:</b> the club's facilities have been shown<br>
+	*/
 	public void showFacilities(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("MOSTRAR INFORMACION DE INSTALACIONES\n");
@@ -906,6 +971,11 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
+	/**
+	*<b>name:</b> showEmployees <br>
+	*This method shows the employees<br>
+	*<b>post:</b> the employees have been shown<br>
+	*/
 	public void showEmployees(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("MOSTRAR INFORMACION DE EMPLEADOS\n");
@@ -941,7 +1011,11 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
-
+	/**
+	*<b>name:</b> showTeams <br>
+	*This method shows the club's teams<br>
+	*<b>post:</b> the club's teams have been shown<br>
+	*/
 	public void showTeams(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("MOSTRAR INFORMACION DE EQUIPOS\n");
@@ -978,6 +1052,11 @@ public class Main{
 		System.out.println("-----------------------------------------------------------");
 	}
 
+	/**
+	*<b>name:</b> showClub<br>
+	*This method shows the club's information<br>
+	*<b>post:</b> the club's information has been shown<br>
+	*/
 	public void showClub(){
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("MOSTRAR INFORMACION DE TODO EL CLUB\n");

@@ -39,11 +39,11 @@ public class Club{
 	}
 
 
-	public String getNIT(){
+	public String getNit(){
 		return nit;
 	}
 
-	public void setNIT(String nit){
+	public void setNit(String nit){
 		this.nit=nit;
 	}	
 
