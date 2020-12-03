@@ -4,6 +4,8 @@ public class Player extends Employee implements Price, Level{
 	private int number;
 	private int goals;
 	private double averageRating;
+
+	//relationship
 	private Position position; 
 
 	public Player(String name, String id, double salary,  int number, double averageRating, String position){

@@ -5,6 +5,8 @@ public class AssistantCoach extends Coach{
 
 	//attributes
 	private boolean wasPlayer;
+
+	//relationship
 	private Skill[] skills;
 
 	public AssistantCoach(String name, String id, double salary, int yearsExperience, boolean wasPlayer, String[] skills){

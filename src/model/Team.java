@@ -16,8 +16,8 @@ public class Team{
 	//attributes
 	private char team;
 	private String name;
-	private int MAX_CR_ROWS;
-	private int MAX_CR_COLS;
+	private int crRows;
+	private int crCols;
 
 	//relationships
 	private Player[] players;
@@ -35,15 +35,15 @@ public class Team{
 		this.name=name;
 		players=new Player[MAX_PLAYERS];
 		if(team=='A'){
-			MAX_CR_ROWS=MAX_CRA_ROWS;
-			MAX_CR_COLS=MAX_CRA_COLS;
+			crRows=MAX_CRA_ROWS;
+			crCols=MAX_CRA_COLS;
 			
 		}
 		else{
-			MAX_CR_ROWS=MAX_CRB_ROWS;
-			MAX_CR_COLS=MAX_CRB_COLS;
+			crRows=MAX_CRB_ROWS;
+			crCols=MAX_CRB_COLS;
 		}
-		changingRooms=new Player[MAX_CR_ROWS][MAX_CR_COLS];
+		changingRooms=new Player[crRows][crCols];
 		
 		assistantCoaches=new AssistantCoach[MAX_AS_COACHES];
 		lineups= new ArrayList<Lineup>();
@@ -262,8 +262,8 @@ public class Team{
 
 		playerList.toArray(players);
 
-		for(int i=0; i<MAX_CR_ROWS; i++){
-			for(int j=0; j<MAX_CR_COLS;j++){
+		for(int i=0; i<crRows; i++){
+			for(int j=0; j<crCols;j++){
 				changingRooms[i][j]=null;
 			}
 		}
@@ -272,7 +272,7 @@ public class Team{
 		for(int i=0; i<players.length;i++){
 			if(players[i]!=null){
 				exit=false;	
-				for(int j=0; j<MAX_CR_ROWS&& !exit;j++){
+				for(int j=0; j<crRows&& !exit;j++){
 					if(j%2!=0){
 						l=1;
 					}
@@ -280,7 +280,7 @@ public class Team{
 						l=0;
 					}
 
-					for(int k=l; k<MAX_CR_COLS && !exit;k+=2){
+					for(int k=l; k<crCols && !exit;k+=2){
 							
 							if(changingRooms[j][k]==null){
 								changingRooms[j][k]=players[i];
@@ -291,8 +291,8 @@ public class Team{
 			}
 		}
 
-		for(int i=0; i<MAX_CR_ROWS; i++){
-			for(int j=0; j<MAX_CR_COLS;j++){
+		for(int i=0; i<crRows; i++){
+			for(int j=0; j<crCols;j++){
 				if(changingRooms[i][j]!=null){
 					location+=" ["+changingRooms[i][j].getName()+"] ";
 				}
@@ -307,8 +307,8 @@ public class Team{
 		for(int k=0; k<players.length;k++){
 			exit=false;
 			if(players[k]!=null){
-				for(int i=0; i<MAX_CR_ROWS && !exit; i++){
-					for(int j=0; j<MAX_CR_COLS && !exit;j++){
+				for(int i=0; i<crRows && !exit; i++){
+					for(int j=0; j<crCols && !exit;j++){
 						if(changingRooms[i][j]==players[k]){
 							hasCR[k]=true;
 							exit=true;
