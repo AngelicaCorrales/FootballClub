@@ -21,7 +21,7 @@ public class Club{
 	/**
 	*<b>name:</b> Club <br>
 	*This is the constructor of the class <br>
-	*<b>post:</b> the relationships of the class have been initialized
+	*<b>post:</b> the attributes and relationships of the class have been initialized
 	*@param name Is the name of the club. name!=null and name!=""<br>
 	*@param nit Is the nit of the club. nit!=null and nit!=""<br>
 	*@param foundationDate Is the foundation date of the club. foundationDate!=null and foundationDate!=""<br>
