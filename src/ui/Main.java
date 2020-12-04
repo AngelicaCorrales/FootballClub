@@ -318,7 +318,7 @@ public class Main{
 
 							int same=0;
 							for(int i=0; i<championships.size();i++){
-								if(championship.equals(championships.get(i))){
+								if(championship.equalsIgnoreCase(championships.get(i))){
 									same++;
 								}
 							}
@@ -729,10 +729,10 @@ public class Main{
 				case 4:
 
 					sc.nextLine();
-					System.out.println("\nIngrese la nueva experticia (ofensivo, defensivo, posesion, jugadas de laboratorio, otra1, otra2)");
+					System.out.println("\nIngrese la nueva experticia (ofensivo, defensivo, posesion, jugadas de laboratorio, psicologo, fisioterapeuta)");
 					String skill=sc.nextLine().toUpperCase();
 					
-					if(skill.equals("OFENSIVO") || skill.equals("DEFENSIVO") || skill.equals("POSESION")|| skill.equals("JUGADAS DE LABORATORIO") || skill.equals("OTRA1") || skill.equals("OTRA2")){
+					if(skill.equals("OFENSIVO") || skill.equals("DEFENSIVO") || skill.equals("POSESION")|| skill.equals("JUGADAS DE LABORATORIO") || skill.equals("PSICOLOGO") || skill.equals("FISIOTERAPEUTA")){
 						if(skill.equals("OFENSIVO")){
 							skill="OFFENSIVE";
 						}
@@ -749,12 +749,12 @@ public class Main{
 							skill="LABORATORY_PLAYS";
 						}
 
-						if(skill.equals("OTRA1")){
-							skill="OTRA1";
+						if(skill.equals("PSICOLOGO")){
+							skill="PSYCHOLOGIST";
 						}
 
-						if(skill.equals("OTRA2")){
-							skill="OTRA2";
+						if(skill.equals("FISIOTERAPEUTA")){
+							skill="PHYSIOTHERAPIST";
 						}
 
 						message=club.updateSkill(id, skill)+"\n";	

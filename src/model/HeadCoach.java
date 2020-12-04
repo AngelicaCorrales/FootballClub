@@ -75,7 +75,7 @@ public class HeadCoach extends Coach implements Price, Level{
 		String message="";
 		boolean exit=false;
 		for(int i=0; i<championships.size() && !exit; i++){
-			if(championship.equals(championships.get(i))){
+			if(championship.equalsIgnoreCase(championships.get(i))){
 				exit=true;
 			}
 		}

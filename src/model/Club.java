@@ -267,7 +267,7 @@ public class Club{
 			
 		}
 		else{
-			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
+			message="No se agrego el nuevo empleado. Ya existe (o existio) un empleado con el mismo identificador";
 		}
 		return message;
 	}
@@ -306,7 +306,7 @@ public class Club{
 				
 		}
 		else{
-			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
+			message="No se agrego el nuevo empleado. Ya existe (o existio) un empleado con el mismo identificador";
 		}
 		return message;
 	}
@@ -344,7 +344,7 @@ public class Club{
 
 		}
 		else{
-			message="No se agrego el nuevo empleado. Ya existe un empleado con el mismo identificador";
+			message="No se agrego el nuevo empleado. Ya existe (o existio) un empleado con el mismo identificador";
 		}
 		return message;
 	}

@@ -572,7 +572,7 @@ public class Team{
 			employees+="\n \n"+headCoach.toString();
 		}
 		else{
-			employees+="-";
+			employees+=" No se ha contratado";
 		}
 
 		for(int i=0; i<assistantCoaches.length;i++){
@@ -581,7 +581,7 @@ public class Team{
 			}
 		}
 		if(asCoaches.equals("")){
-			asCoaches="-";
+			asCoaches=" No se ha contratado";
 		}
 		else{
 			asCoaches="\n \n"+asCoaches;
@@ -596,7 +596,7 @@ public class Team{
 		}
 
 		if(playersString.equals("")){
-			playersString="-";
+			playersString=" No se ha contratado";
 		}
 		else{
 			playersString="\n \n"+playersString;
