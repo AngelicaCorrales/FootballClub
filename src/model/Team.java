@@ -162,7 +162,7 @@ public class Team{
 	*<b>name:</b> getChangingRooms <br>
 	*This method gets the changing rooms of the team <br>
 	*<b>post:</b> the changing rooms of the team have been gotten <br>
-	*@return an array of <code>Player</code> specifying changingRooms, the changing rooms of the team 
+	*@return a matrix of <code>Player</code> specifying changingRooms, the changing rooms of the players of the team 
 	*/
 	public Player[][] getChangingRooms(){
 		return changingRooms;
@@ -172,7 +172,7 @@ public class Team{
 	*<b>name:</b> setChangingRooms<br>
 	*This method sets the changing rooms of the team <br>
 	*<b>post:</b> the changing rooms of the team have been set <br>
-	*@param changingRooms Is an array of changing rooms of the team. changingRooms!=null<br>
+	*@param changingRooms Is a matrix of changing rooms of the players of the team. changingRooms!=null<br>
 	*/
 	public void setChangingRooms(Player[][] changingRooms){
 		this.changingRooms=changingRooms;
