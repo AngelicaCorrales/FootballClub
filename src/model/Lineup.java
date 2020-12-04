@@ -15,7 +15,7 @@ public class Lineup{
 	/**
 	*<b>name:</b> Lineup <br>
 	*This is the constructor of the class <br>
-	*<b>post:</b> the attributes and relationships of the class have been initialized
+	*<b>post:</b> the attributes and relationships of the class have been initialized<br>
 	*@param date Is the date of the lineup. date!=null and date!=""<br>
 	*@param tactic Is the tactic of the lineup. tactic!=null and tactic!=""<br>
 	*/
