@@ -202,7 +202,7 @@ public class Team{
 	*<b>name:</b> findEmployee <br>
 	*This method finds an employee in the team<br>
 	*<b>post:</b> the employee may have been found<br>
-	*@param employee Is the employee. employee!=null<br>
+	*@param objEmployee Is the employee. employee!=null<br>
 	*@return an <code>Employee</code> specifying objEmployee, the employee if it has been found or not
 	*/	
 	public Employee findEmployee(Employee objEmployee){
@@ -378,7 +378,7 @@ public class Team{
 	*<b>name:</b> fireEmployee <br>
 	*This method fires an employee in the team<br>
 	*<b>post:</b> the employee  may have been fired<br>
-	*@param employee Is the employee. employee!=null<br>
+	*@param objEmployee Is the employee. employee!=null<br>
 	*/
 	public void fireEmployee(Employee objEmployee){
 		boolean exit=false;

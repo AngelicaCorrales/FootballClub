@@ -432,7 +432,7 @@ public class Club{
 	*<b>name:</b> findEmployeeInTeam <br>
 	*This method finds a team depending on the employee<br>
 	*<b>post:</b> the team has been found<br>
-	*@param employee Is the employee. employee!=null<br>
+	*@param objEmployee Is the employee. employee!=null<br>
 	*@return a <code>Team</code> specifying team, the team depending on the employee
 	*/	
 	public Team findEmployeeInTeam(Employee objEmployee){
