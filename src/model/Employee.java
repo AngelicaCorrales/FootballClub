@@ -107,7 +107,7 @@ public abstract class Employee{
 	/**
 	*<b>name:</b> statusToString <br>
 	*This method returns the status as a string<br>
-	*<b>post:</b> the fstatus has been returned as a string<br>
+	*<b>post:</b> the status has been returned as a string<br>
 	*@return a <code>string</code> specifying status, the status if the employee is active or not
 	*/
 	public String statusToString(){
