@@ -607,25 +607,6 @@ public class Club{
 
 
 
-	/**
-	*<b>name:</b> showEmployeeInfo <br>
-	*This method shows the information of an employee<br>
-	*<b>post:</b> the information of the employee has been shown<br>
-	*@param id Is the identifier of the employee. id!=null, id!=""<br>
-	*@return a <code>string</code> specifying info, the information of the employee
-	*/
-	public String showEmployeeInfo(String id){
-		Employee objEmployee=findEmployee(id);
-		String info= "";
-		if(objEmployee==null){
-		 info="Error. El empleado no existe";
-		}else{
-			info=objEmployee.toString();
-		}
-		return info;
-	}
-
-
 
 
 	/**

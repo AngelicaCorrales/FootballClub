@@ -479,7 +479,7 @@ public class Main{
 		}
 		else{
 
-			message="\n"+club.showEmployeeInfo(id);
+			message="\n"+club.showEmployee(id);
 			System.out.println(message);
 			if(club.searchEmployee(id)==1){
 				updatePlayer(id);
